@@ -1,0 +1,17 @@
+#+title: Cleavage
+#+author: James leslie
+#+options: h:2 num:t tex:t
+#+STARTUP: latexpreview inlineimages hideblocks
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+* Definition
+Let \(P:E \rightarrow B\) be a functor. A /cleavage/ of \(p\) is a choice, for each \(e \in E\) and \(u : b \rightarrow Pe\), of a single [[id:73fde245-85d2-4e0a-bc4c-ce37e9105069][cartesian arrow]] \(f:e' \rightarrow e\) such that \(Pf = u\).
+** Cloven functors
+We say that a functor equipped with a cleavage is /cloven/.
+** Normal cleavage
+A cleavage is /normal/ if whenever \(u\) is the identity, the cartesian arrow \(f\) is the identity.
+** Splitting cleavage
+A cleavage is said to be /splitting/ if each composite \(f_1 f_2\) is the specified lifting of \(u_2 u_1\).
+* Properties
+** Grothendieck Fibration
+If a cleavage exists for a functor \(P\), \(P\) is a [[file:20201001140349-grothendieck_fibrations.org][Grothendieck fibration]].

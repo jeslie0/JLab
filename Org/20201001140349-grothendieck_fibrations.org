@@ -1,0 +1,68 @@
+#+title: Grothendieck Fibrations
+#+author: James leslie
+#+options: h:2 num:t tex:t
+#+STARTUP: latexpreview inlineimages hideblocks 
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+* Definition
+:PROPERTIES:
+:ID:       73fde245-85d2-4e0a-bc4c-ce37e9105069
+:END:
+
+#+BEGIN_definition
+Let \(P:E \rightarrow B\) be a functor and \(\phi:e' \rightarrow e\) be an arrow in a category \(E\). We say that \(\phi\) is /cartesian with respect to \(P\)/ if for any arrows \(\psi:e'' \rightarrow e\) in \(E\) and \(g:Pe'' \rightarrow Pe'\) in \(B\) such that \(P\phi \circ g = P\psi\), there exists a unique \(\chi : e'' \rightarrow e'\) such that \(\psi = \phi \circ \chi\) and \(P\chi = g\).
+#+END_definition
+ 
+
+Note that this is a lifting condition. We can summarise this in the following diagram:
+
+#+BEGIN_SRC latex :fit yes :file ../Images/cartesian-morphism.png :imagemagick yes :iminoptions -density 600 :headers '("\\usepackage{tikz-cd}") :results none :exports (when (eq org-export-current-backend 'html) "none")
+    \definecolor{col1}{HTML}{B2B2B2}
+    \begin{tikzcd}[color=col1]
+                                                                    & e \arrow[d, "\phi"] &  &                                                  & Pe' \arrow[d, "P \phi"] \\
+  e'' \arrow[r, "\forall \psi"'] \arrow[ru, "\exists \chi", dashed] & e                   &  & Pe'' \arrow[ru, "\forall g"] \arrow[r, "P\psi"'] & Pe                     
+  \end{tikzcd}
+#+END_SRC
+#+attr_html: :width 600px
+[[file:../Images/cartesian-morphism.png]]
+
+#+BEGIN_definition
+A functor \(P:E \rightarrow B\) is a (Grothendieck) /fibration/ if for any \(e \in E\) and \(f:b \rightarrow Pe\), there is a cartesian arrow \(\phi:e' \rightarrow e\) with \(P\phi = f\). Such an arrow is called a cartesian lifting of \(f\) to \(e\) and a choice of cartesian lifting for every \(e\) and \(f\) is called a /cleavage/.
+#+END_definition
+
+* Examples
+
+** The category of elements
+:PROPERTIES:
+:ID:       5dfb85b6-3c01-46bc-b1b2-66074237528b
+:END:
+The canonical example of a Grothendieck fibration is the functor from the [[file:20201001153515-category_of_elements.org][category of elements]] of a presheaf, to its base category.
+
+#+BEGIN_theorem
+For any presheaf \(P: \mathbb A ^\text{op} \rightarrow \operatorname{Set}\), the forgetful functor from the category of elements of \(P\) to \(\mathbb A\) is a Grothendieck fibration.
+#+END_theorem
+
+#+BEGIN_proof
+Let \((A,x)\) be an object in the category of elements of a presheaf \(P: \mathbb A ^\text{op} \rightarrow \operatorname{Set}\) and let \(f:B \rightarrow A\) be a map in \(\mathbb A\). Suppose we have maps \(\psi\) and \(g\) as in the following diagram:
+
+#+BEGIN_SRC latex :fit yes :file ../Images/Grothendieck-fib-category-of-elements.png :imagemagick yes :iminoptions -density 600 :headers '("\\usepackage{tikz-cd}") :results none :exports (when (eq org-export-current-backend 'html) "none")
+  \definecolor{col1}{HTML}{B2B2B2}
+  \begin{tikzcd}[color=col1]
+                                                                & {(B, (Pf)(x))} \arrow[d, "f"] &  &                                              & B \arrow[d, "f"] \\
+                                                                {(C, y)} \arrow[r, "\forall \psi"'] \arrow[ru, "\exists? \chi", dashed] & {(A,x)}                       &  & C \arrow[r, "\psi"'] \arrow[ru, "\forall g"] & A               
+  \end{tikzcd}
+  #+END_SRC
+#+attr_html: :width 600px
+[[file:../Images/Grothendieck-fib-category-of-elements.png]]
+
+We need to show the existence of such a \(\chi\). We note that by definition of morphisms in categories of elements, \(y = (P\psi)(x)\). As \(\psi = fg\), we have the following:
+\begin{align*}
+y &= (P\psi)(x)\\
+  &= (Pfg)(x)\\
+  &= (Pg)(Pf)(x).
+\end{align*}
+This allows us to lift \(g\) to a map \(g: (C, y) \rightarrow (B, (Pf)(x))\), which is then our desired \(\chi\).
+#+END_proof
+* References
+
+

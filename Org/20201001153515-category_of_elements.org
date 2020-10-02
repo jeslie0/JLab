@@ -1,0 +1,20 @@
+#+title: Category of Elements
+#+author: James leslie
+#+options: h:2 num:t tex:t
+#+STARTUP: latexpreview inlineimages hideblocks
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+* Definition
+
+#+BEGIN_definition
+Given a presheaf \(P: \mathbb A ^\text{op} \rightarrow \operatorname{Set}\), the category of elements of \(P\), denoted \(\int P\), is the category with:
+- Objects: Pairs \((A \in \mathbb A, x \in PA)\);
+- Maps: \(f:(A,x) \rightarrow (B, y)\) is a map \(f:A \rightarrow B \in \mathbb A\) such that \((Pf)(y) = x\).
+#+END_definition
+* Properties
+** Grothendieck Fibration
+Given a presheaf \(P\) as above, there is a canonical map \(\int P \rightarrow \mathbb A\) defined by \((A,x) \mapsto A\). This is the archetypal example of a [[file:20201001140349-grothendieck_fibrations.org][Grothendieck Fibration]]. 
+** Comma Category
+:PROPERTIES:
+:ID:       e202f7dd-c011-44d0-a1e0-f33c0c755dab
+:END:
+The category of elements of a presheaf \(P\) can also be described as the comma category \((* \downarrow P)\), where the functor \(*: \mathbbm 1 \rightarrow \Set\) is the functor selecting the terminal object.

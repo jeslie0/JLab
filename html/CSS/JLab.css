@@ -1,0 +1,124 @@
+h1 {
+    color: #BC6EC5;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+h2 {
+    color: #4F97D7;
+    font-weight: bold;
+}
+
+h3 {
+    color: #2D9574;
+    font-weight: bold;
+}
+
+p.a {
+    font-family: ;
+}
+body {
+    color: #B2B2B2;
+    background-color: #292B2E;
+    font-family: 'Source Sans Pro', Helvetica;
+ }
+a {
+    color: #2AA1AD;
+}
+
+.theorem {
+
+    display: block;
+
+    margin: 12px 0;
+
+    font-style: italic;
+
+}
+
+.theorem:before {
+
+    content: "Theorem.";
+
+    font-weight: bold;
+
+    font-style: normal;
+
+}
+
+.lemma {
+
+    display: block;
+
+    margin: 12px 0;
+
+    font-style: italic;
+
+}
+
+.lemma:before {
+
+    content: "Lemma.";
+
+    font-weight: bold;
+
+    font-style: normal;
+
+}
+
+
+.definition {
+
+    display: block;
+
+    margin: 12px 0;
+
+    font-style: normal;
+
+}
+
+.definition:before {
+
+    content: "Definition.";
+
+    font-weight: bold;
+
+    font-style: normal;
+
+}
+
+.proof{
+    display:block;
+    margin-left:10px;
+    margin-bottom:30px;
+    font-style:normal;
+}
+.proof:before{
+    content:'Proof.\00a0\00a0';
+    float:left;
+    font-weight:bold;
+}
+.proof:after{
+    content:"\25FC";
+    float:right;
+}
+
+.proposition {
+
+    display: block;
+
+    margin: 12px 0;
+
+    font-style: italic;
+
+}
+
+.proposition:before {
+
+    content: "Proposition.";
+
+    font-weight: bold;
+
+    font-style: normal;
+
+}

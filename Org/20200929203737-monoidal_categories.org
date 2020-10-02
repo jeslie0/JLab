@@ -1,0 +1,65 @@
+#+title: Monoidal Categories
+#+author: James leslie
+#+options: h:2 num:t tex:t
+#+STARTUP: latexpreview inlineimages hideblocks
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../CSS/JLab.css"/> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+* Definition
+This is taken from Definition 1.2.1 in [[https://arxiv.org/abs/2002.06055][2-Dimensional Categories]].
+#+BEGIN_definition
+A /monoidal category/ is a tuple \((C, \otimes, I, \alpha, \lambda, \rho)\) consisting of:
+- a category \(C\);
+- a functor \(\otimes : C \times C \rightarrow C\) called the /monoidal product/;
+- an object \(I \in C\) called the /monoidal unit/;
+- a natural isomorphism
+  \[\alpha_{X,Y,Z}:(X \otimes Y) \otimes Z \rightarrow X \otimes (Y \otimes Z)\]
+  for all objects \(X, Y, Z \in C\) called the /associativity isomorphism/;
+- natural isomorphisms
+  \[\lambda_X : I \otimes X  \xrightarrow{\sim} X\]
+  \[\rho_X : X \otimes I \xrightarrow{\sim} X\]
+#+END_definition
+
+  The above data must satisfy the following axioms:
+** Unit axioms
+The middle unity diagram
+#+BEGIN_SRC latex :fit yes :file ../Images/middle-unity.png :imagemagick yes :iminoptions -density 600 :headers '("\\usepackage{tikz-cd}") :results none :exports (when (eq org-export-current-backend 'html) "none")
+  \definecolor{col1}{HTML}{B2B2B2}
+  \begin{tikzcd}[color=col1]
+    (X \times I) \otimes Y \ar[rr, "\alpha{X, I, Y}"] \ar[rd, "\rho_X \otimes Y"']& & X \otimes (I \otimes Y) \ar[ld, "X \otimes \lambda_Y"]\\
+    & X \otimes Y &
+  \end{tikzcd}
+  #+END_SRC
+#+attr_html: :width 400px
+[[file:..//Images/middle-unity.png]]
+
+is commutative for all \(X,Y \in C\). Moreover, the equality
+\[\lambda_I = \rho_I : I \otimes I \rightarrow I\]
+holds.
+** Pentagon Axiom
+The pentagon
+#+BEGIN_SRC latex :fit yes :file ../Images/monoidal-pentegon-diagram.png :imagemagick yes :iminoptions -density 600 :headers '("\\usepackage{tikz-cd}") :results none :exports (when (eq org-export-current-backend 'html) "none")
+      \definecolor{col1}{HTML}{B2B2B2}
+      \begin{tikzcd}[color=col1]
+                                                                                                                        & (W \otimes X) \otimes (Y \otimes Z) \arrow[rd, "{\alpha_{W,X,Y \otimes Z}}"] &                                                                              \\
+  ((W \otimes X)\otimes Y) \otimes Z \arrow[ru, "{\alpha_{W \otimes X, Y Z}}"] \arrow[d, "{\alpha_{W,X,Y} \otimes Z}"'] &                                                                              & W \otimes (X \otimes (Y \otimes Z))                                          \\
+  (W \otimes (X \otimes Y)) \otimes Z \arrow[rr, "{\alpha_{W, X \otimes Y, Z}}"]                                        &                                                                              & W \otimes ((X \otimes Y) \otimes Z) \arrow[u, "{W \otimes \alpha_{X,Y,Z}}"']
+  \end{tikzcd}
+    
+  #+END_SRC
+#+attr_html: :width 600px
+[[file:../Images/monoidal-pentegon-diagram.png]]
+
+
+is commutative for all objects \(W, X, Y, Z \in C\).
+
+* Examples
+** Bicategories
+:PROPERTIES:
+:ID:       a27c1dfd-7772-4a56-a575-6b7e6d854f71
+:END:
+Every monoidal category is an example of a [[file:20200929150428-bicategories.org][bicategory]] with one object. 
+* References
+- The definition used is from Johnson and Yau's [[https://arxiv.org/abs/2002.06055][2-Dimensional Categories]].
+
+ 
+

@@ -1,0 +1,85 @@
+#+title: Bicategories
+#+author: James leslie
+#+options: h:2 num:t tex:t
+#+STARTUP: latexpreview inlineimages hideblocks
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+* Idea
+
+* Definition
+:PROPERTIES:
+:ID:       003f4560-dfdc-4faa-82dd-9a3a5d4518bd
+:END:
+A /bicategory/ is a tuple \((B, 1, c, a, l, r)\) consisting of the following data
+** Objects
+\(B\) is equipped with a class \(\operatorname{Ob}(B)=B_0\), whose elements are called /objects/ or /0-cells/ in \(B\). If \(X \in B_0\), we write \(X \in B\).
+** Hom Categories
+For each pair of objects \(X, Y \in B\), \(B\) is equipped with a category \(B(X,Y)\), called a /hom category/.
+- Its objects are called /1-cells/ in \(B\). The collection of 1-cells in \(B\) is denoted by \(B_1\).
+- Its morphisms are called /2-cells/ in \(B\). The collection of all the 2-cells in \(B\) is denoted by \(B_2\).
+- Composition and identity morphisms in the category \(B(X,Y)\) are called /vertical composition/ and /identity 2-cells/, respectively.
+- An isomorphism in \(B(X,Y)\) is called an /invertible 2-cell/, and its inverse is called a vertical inverse.
+- For a 1-cell \(f\), its identity 2-cell is denoted by \(1_f\).
+** Identity 1-Cells
+For each object \(X \in B\),
+
+\[1_X : \mathbf{1} \rightarrow B(X,X)\]
+
+is a functor. We identify the functor \(1_X\) with the 1-cell \(1_X(*) \in B(X,X)\), called the /identity 1-cell of \(X\)/.
+** Horizontal Composition
+For each triple of objects \(X, Y, Z \in B\),
+
+\[c_{XYZ} : B(Y,Z) \times B(X,Y) \rightarrow B(X,Z)\]
+
+is a functor, called /horizontal composition/. For 1-cells \(f \in B(X, Y)\) and \(g \in B(Y,Z)\), and 2-cells \(\alpha \in B(X,Y)\) and \(\beta \in B(Y,Z)\), we use notations:
+- \(c_{XYZ}(g,f) = g \circ f\) or \(gf \)
+- \(c_{XYZ}(\beta, \alpha) = \beta * \alpha\)
+** Associator
+For objects \(W, X, Y, Z \in B\),
+
+\[a_{WXYZ} : c_{WXY}(c_{XYZ} \times \operatorname{Id}_{B(W,X)}) \rightarrow c_{WYZ} (\operatorname{Id}_{B(Y,Z)} \times c_{WXY})\]
+
+is a natural isomorphism called the associator, between functors
+
+\[\alpha_{WXYZ} : B(Y,Z) \times B(X, Y) \times B(W, X) \rightarrow B(W, Z).\]
+** Unitors
+For each pair of objects \(X, Y \in B\),
+
+\[c_{XYY}(1_Y \times \operatorname{Id}_{B(X,Y)}) \xrightarrow{l_{XY}} \operatorname{Id}_{B(X,Y)} \xleftarrow{r_{XY}} c_{XXY}(\operatorname{Id}_{B(X,Y)} \times 1_X)\]
+
+are natural isomorphisms, called the /left unitor/ and the /right unitor/, respectively.
+
+The subscripts in \(c\) will often be omitted. Th subscripts in \(a\), \(l\), and \(r\) will often be used to denote their components. The above data are required to satisfy the following two axioms for 1-cells \(f \in B(V,W)\), \(g \in B(W, X)\), \(h \in B(X,Y)\) and \(k \in B(Y, Z)\).
+** Unity Axiom
+The middle unity diagram
+#+BEGIN_SRC latex :fit yes :file ../Images/unity_diagram.png :imagemagick yes :iminoptions -density 800 :headers '("\\usepackage{tikz-cd}") :results none :noweb yes :exports (when (eq org-export-current-backend 'html) "none")
+  \definecolor{col1}{HTML}{B2B2B2}
+    \begin{tikzcd}[color=col1]
+      (g 1_W)f \ar[rr, "a"] \ar[rd, "r_g * 1_f"'] & & \ar[ld, "1_g * l_f"] g(1_Wf)\\
+      & gf &
+    \end{tikzcd}
+  #+END_SRC
+#+attr_html: :width 400px
+[[file:../Images/unity_diagram.png]]
+
+in \(B(V,X)\) is commutative.
+** Pentagon Axiom
+The diagram
+#+BEGIN_SRC latex :fit yes :file ../Images/pentagon_diagram.png :imagemagick yes :iminoptions -density 600 :headers '("\\usepackage{tikz-cd}") :results none :exports (when (eq org-export-current-backend 'html) "none")
+  \definecolor{col1}{HTML}{B2B2B2}
+    \begin{tikzcd}[color=col1]
+        & (kh)(gf) \ar[dr, "a_{k,h,gf}"] & \\
+        ((kh)g)f \ar[ur, "a_{kh,g,f}"] \ar[d, "a_{k,h,g} * 1_f"'],  & & k(h(gf))\\
+        (k(hg))f \ar[rr, "a_{k,hg,f}"]& & k((hg)f) \ar[u, "1_k * a_{h,g,f}"']
+    \end{tikzcd}
+  #+END_SRC
+#+attr_html: :width 400px
+[[file:../Images/pentagon_diagram.png]]
+
+in \(B(V,Z)\) is commutative.
+* Remarks
+** Notation
+- We refer to a bicategory as \(B\), its class of objects.
+* TODO Explanation
+* Examples
+** Monoidal categories
+Every [[file:20200929203737-monoidal_categories.org][Monoidal Category]] is an example of a one object bicategory. This is a generalisation of the observation that a monoid is just a one object category.

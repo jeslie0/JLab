@@ -1,0 +1,4 @@
+#+title: README
+#+author: James Leslie
+
+This is the start of my notes repository, currently called the J-Lab. It's end goal is to be something like a small wiki for my own research.
