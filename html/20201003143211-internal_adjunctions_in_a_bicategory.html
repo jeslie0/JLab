@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-03 Sat 17:23 -->
+<!-- 2020-10-03 Sat 17:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bicategories</title>
+<title>Internal Adjunctions in a Bicategory</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="James leslie" />
 <style type="text/css">
@@ -241,284 +241,92 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">Bicategories</h1>
+<h1 class="title">Internal Adjunctions in a Bicategory</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1d5093c">1. Idea</a></li>
-<li><a href="#orge03b39d">2. Definition</a>
+<li><a href="#org17a4445">1. Idea</a></li>
+<li><a href="#org4e44c88">2. Definitions</a></li>
+<li><a href="#orgcc8637c">3. Examples</a>
 <ul>
-<li><a href="#org755c06b">2.1. Objects</a></li>
-<li><a href="#orgb58c36b">2.2. Hom Categories</a></li>
-<li><a href="#orga7db290">2.3. Identity 1-Cells</a></li>
-<li><a href="#org16e93a2">2.4. Horizontal Composition</a></li>
-<li><a href="#org9c8f7ca">2.5. Associator</a></li>
-<li><a href="#org355b931">2.6. Unitors</a></li>
-<li><a href="#org69f27cd">2.7. Unity Axiom</a></li>
-<li><a href="#orgccc3f1e">2.8. Pentagon Axiom</a></li>
+<li><a href="#orgd9cade2">3.1. 1-Adjunctions</a></li>
+<li><a href="#orgf594b10">3.2. Duals</a></li>
 </ul>
 </li>
-<li><a href="#org4c1cf5a">3. Remarks</a>
-<ul>
-<li><a href="#org9f73b89">3.1. Notation</a></li>
-</ul>
-</li>
-<li><a href="#orgd240494">4. <span class="todo TODO">TODO</span> Explanation</a></li>
-<li><a href="#orgb1962ae">5. Examples</a>
-<ul>
-<li><a href="#org308d4ef">5.1. Monoidal categories</a></li>
-<li><a href="#orge9a4adb">5.2. Spans</a></li>
-</ul>
-</li>
+<li><a href="#org0f2e58a">4. <span class="todo TODO">TODO</span> Mates</a></li>
 </ul>
 </div>
-</div>
-<div id="outline-container-org1d5093c" class="outline-2">
-<h2 id="org1d5093c"><span class="section-number-2">1</span> Idea</h2>
 </div>
 
-<div id="outline-container-orge03b39d" class="outline-2">
-<h2 id="orge03b39d"><span class="section-number-2">2</span> Definition</h2>
+<div id="outline-container-org17a4445" class="outline-2">
+<h2 id="org17a4445"><span class="section-number-2">1</span> Idea</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+We can think of adjunctions as living in the 2-category \(\textbf{Cat}\), with their data being defined as properties of 1-cells and 2-cells, plus the triangle identities. We can abstract this notion to an arbitrary bicategory.
+</p>
+</div>
+</div>
+<div id="outline-container-org4e44c88" class="outline-2">
+<h2 id="org4e44c88"><span class="section-number-2">2</span> Definitions</h2>
 <div class="outline-text-2" id="text-2">
+<div class="definition" id="org7512c21">
 <p>
-A <i>bicategory</i> is a tuple \((B, 1, c, a, l, r)\) consisting of the following data
-</p>
-</div>
-<div id="outline-container-org755c06b" class="outline-3">
-<h3 id="org755c06b"><span class="section-number-3">2.1</span> Objects</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-\(B\) is equipped with a class \(\operatorname{Ob}(B)=B_0\), whose elements are called <i>objects</i> or <i>0-cells</i> in \(B\). If \(X \in B_0\), we write \(X \in B\).
-</p>
-</div>
-</div>
-<div id="outline-container-orgb58c36b" class="outline-3">
-<h3 id="orgb58c36b"><span class="section-number-3">2.2</span> Hom Categories</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-For each pair of objects \(X, Y \in B\), \(B\) is equipped with a category \(B(X,Y)\), called a <i>hom category</i>.
+An <i>internal adjuntion</i> \(f \dashv g\) in an bicategory B is a quadruple \(f,g,\eta, \epsilon\) consisting of:
 </p>
 <ul class="org-ul">
-<li>Its objects are called <i>1-cells</i> in \(B\). The collection of 1-cells in \(B\) is denoted by \(B_1\).</li>
-<li>Its morphisms are called <i>2-cells</i> in \(B\). The collection of all the 2-cells in \(B\) is denoted by \(B_2\).</li>
-<li>Composition and identity morphisms in the category \(B(X,Y)\) are called <i>vertical composition</i> and <i>identity 2-cells</i>, respectively.</li>
-<li>An isomorphism in \(B(X,Y)\) is called an <i>invertible 2-cell</i>, and its inverse is called a vertical inverse.</li>
-<li>For a 1-cell \(f\), its identity 2-cell is denoted by \(1_f\).</li>
+<li>1-cells: \(f:X \rightarrow Y\) and \(g:Y \rightarrow X\);</li>
+<li><p>
+2-cells: \(eta:1_X \rightarrow gf\) and \(\epsilon:fg \rightarrow 1_Y\).
+</p>
+
+<p>
+These maps are subject to the following two commutative diagrams, that we call the left and right triangle identities:
+</p></li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orga7db290" class="outline-3">
-<h3 id="orga7db290"><span class="section-number-3">2.3</span> Identity 1-Cells</h3>
-<div class="outline-text-3" id="text-2-3">
-<p>
-For each object \(X \in B\),
-</p>
 
-<p>
-\[1_X : \mathbf{1} \rightarrow B(X,X)\]
-</p>
 
-<p>
-is a functor. We identify the functor \(1_X\) with the 1-cell \(1_X(*) \in B(X,X)\), called the <i>identity 1-cell of \(X\)</i>.
-</p>
-</div>
-</div>
-<div id="outline-container-org16e93a2" class="outline-3">
-<h3 id="org16e93a2"><span class="section-number-3">2.4</span> Horizontal Composition</h3>
-<div class="outline-text-3" id="text-2-4">
-<p>
-For each triple of objects \(X, Y, Z \in B\),
-</p>
-
-<p>
-\[c_{XYZ} : B(Y,Z) \times B(X,Y) \rightarrow B(X,Z)\]
-</p>
-
-<p>
-is a functor, called <i>horizontal composition</i>. For 1-cells \(f \in B(X, Y)\) and \(g \in B(Y,Z)\), and 2-cells \(\alpha \in B(X,Y)\) and \(\beta \in B(Y,Z)\), we use notations:
-</p>
-<ul class="org-ul">
-<li>\(c_{XYZ}(g,f) = g \circ f\) or \(gf \)</li>
-<li>\(c_{XYZ}(\beta, \alpha) = \beta * \alpha\)</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org9c8f7ca" class="outline-3">
-<h3 id="org9c8f7ca"><span class="section-number-3">2.5</span> Associator</h3>
-<div class="outline-text-3" id="text-2-5">
-<p>
-For objects \(W, X, Y, Z \in B\),
-</p>
-
-<p>
-\[a_{WXYZ} : c_{WXY}(c_{XYZ} \times \operatorname{Id}_{B(W,X)}) \rightarrow c_{WYZ} (\operatorname{Id}_{B(Y,Z)} \times c_{WXY})\]
-</p>
-
-<p>
-is a natural isomorphism called the associator, between functors
-</p>
-
-<p>
-\[\alpha_{WXYZ} : B(Y,Z) \times B(X, Y) \times B(W, X) \rightarrow B(W, Z).\]
-</p>
-</div>
-</div>
-<div id="outline-container-org355b931" class="outline-3">
-<h3 id="org355b931"><span class="section-number-3">2.6</span> Unitors</h3>
-<div class="outline-text-3" id="text-2-6">
-<p>
-For each pair of objects \(X, Y \in B\),
-</p>
-
-<p>
-\[c_{XYY}(1_Y \times \operatorname{Id}_{B(X,Y)}) \xrightarrow{l_{XY}} \operatorname{Id}_{B(X,Y)} \xleftarrow{r_{XY}} c_{XXY}(\operatorname{Id}_{B(X,Y)} \times 1_X)\]
-</p>
-
-<p>
-are natural isomorphisms, called the <i>left unitor</i> and the <i>right unitor</i>, respectively.
-</p>
-
-<p>
-The subscripts in \(c\) will often be omitted. Th subscripts in \(a\), \(l\), and \(r\) will often be used to denote their components. The above data are required to satisfy the following two axioms for 1-cells \(f \in B(V,W)\), \(g \in B(W, X)\), \(h \in B(X,Y)\) and \(k \in B(Y, Z)\).
-</p>
-</div>
-</div>
-<div id="outline-container-org69f27cd" class="outline-3">
-<h3 id="org69f27cd"><span class="section-number-3">2.7</span> Unity Axiom</h3>
-<div class="outline-text-3" id="text-2-7">
-<p>
-The middle unity diagram
-</p>
-
-<div id="org2189090" class="figure">
-<p><img src="../Images/unity_diagram.png" alt="unity_diagram.png" width="400px" />
+<div id="org4598a5e" class="figure">
+<p><img src="../Images/internal-adjunction-triangle-identities.png" alt="internal-adjunction-triangle-identities.png" width="800px" />
 </p>
 </div>
 
 <p>
-in \(B(V,X)\) is commutative.
-</p>
-</div>
-</div>
-<div id="outline-container-orgccc3f1e" class="outline-3">
-<h3 id="orgccc3f1e"><span class="section-number-3">2.8</span> Pentagon Axiom</h3>
-<div class="outline-text-3" id="text-2-8">
-<p>
-The diagram
+We call \(f\) and \(g\) the left and right adjoints, respectively. The 2-cells \(\eta\) and \(\epsilon\) are called the unit and counit, respectively.
 </p>
 
-<div id="orgaa403cf" class="figure">
-<p><img src="../Images/pentagon_diagram.png" alt="pentagon_diagram.png" width="400px" />
-</p>
-</div>
-
-<p>
-in \(B(V,Z)\) is commutative.
-</p>
 </div>
 </div>
 </div>
-<div id="outline-container-org4c1cf5a" class="outline-2">
-<h2 id="org4c1cf5a"><span class="section-number-2">3</span> Remarks</h2>
+<div id="outline-container-orgcc8637c" class="outline-2">
+<h2 id="orgcc8637c"><span class="section-number-2">3</span> Examples</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org9f73b89" class="outline-3">
-<h3 id="org9f73b89"><span class="section-number-3">3.1</span> Notation</h3>
+<div id="outline-container-orgd9cade2" class="outline-3">
+<h3 id="orgd9cade2"><span class="section-number-3">3.1</span> 1-Adjunctions</h3>
 <div class="outline-text-3" id="text-3-1">
-<ul class="org-ul">
-<li>We refer to a bicategory as \(B\), its class of objects.</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orgd240494" class="outline-2">
-<h2 id="orgd240494"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> Explanation</h2>
-</div>
-<div id="outline-container-orgb1962ae" class="outline-2">
-<h2 id="orgb1962ae"><span class="section-number-2">5</span> Examples</h2>
-<div class="outline-text-2" id="text-5">
-</div>
-<div id="outline-container-org308d4ef" class="outline-3">
-<h3 id="org308d4ef"><span class="section-number-3">5.1</span> Monoidal categories</h3>
-<div class="outline-text-3" id="text-5-1">
 <p>
-Every <a href="20200929203737-monoidal_categories.html">Monoidal Category</a> is an example of a one object bicategory. This is a generalisation of the observation that a monoid is just a one object category.
+Every adjunction from 1-category theory gives an example of an internal adjunction in \(\textbf{Cat}\), with associator and unitors being identity maps.
 </p>
 </div>
 </div>
-<div id="outline-container-orge9a4adb" class="outline-3">
-<h3 id="orge9a4adb"><span class="section-number-3">5.2</span> Spans</h3>
-<div class="outline-text-3" id="text-5-2">
+<div id="outline-container-orgf594b10" class="outline-3">
+<h3 id="orgf594b10"><span class="section-number-3">3.2</span> Duals</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
-We can construct a bicategory from any category \(\mathcal C\) which has all pullbacks.
+Every compact category, when regarded as a one object bicategory, has an internal adjunction given by duals. Saying that a one object bicategory has an internal adjunction is exactly saying that the monoidal category has duals.
 </p>
-
-<div class="definition" id="org895a02c">
-<p>
-Let \(\mathcal C\) be a category and \(A, B \in \mathcal C\). A <i>span</i> from \(A\) to \(B\) in \(\mathcal C\) is a diagram
-\[A \xleftarrow{f_1} X \xrightarrow{f_2} B.\]
-</p>
-
-</div>
-
-<div class="definition" id="orgde59afd">
-<p>
-Given a category \(\mathcal C\) which has all pullbacks, we form the <i>bicategory of spans of \(\mathcal C\)</i>, denoted \(\text{Span}(\mathcal C)\) or just \(\text{Span}\) for short, as follows:
-</p>
-<ul class="org-ul">
-<li>Objects: The objects of \(\mathcal C\);</li>
-<li>1-cells: For objects \(A,B \in \mathcal C\), the objects of \(\text{Span}(A,B)\) are spans in \(C\) from \(A\) to \(B\).</li>
-<li>2-cells: Given two spans \((f_1, f_2), (g_1, g_2) \in \text{Span}(A, B)\), a morphism is a map \(\phi: X \rightarrow X'\) in \(\mathcal C\) that makes the following diagram commute:</li>
-</ul>
-
-
-<div id="orgac8182e" class="figure">
-<p><img src="../Images/span-morphism.png" alt="span-morphism.png" width="400px" />
-</p>
-</div>
-<ul class="org-ul">
-<li>Identity 2-cells are the identity arrows from \(\mathcal C\) with vertical composition inherited from \(\mathcal C\).</li>
-</ul>
-<ul class="org-ul">
-<li>The horizontal composition of 1-cells is induced by chosen pullbacks. Given \((f_1, f_2) \in \text{Span}(A,B)\) and \((g_1, g_2) \in \text{Span}(B,C)\), we construct the horizontal composite to be \((f_1p_1, g_2p_2) \in \text{Span}(A, C)\) by pullback, which is shown in the following diagram:</li>
-</ul>
-
-
-<div id="org18346cd" class="figure">
-<p><img src="../Images/horizontal-composite-spans.png" alt="horizontal-composite-spans.png" width="400px" />
-</p>
-</div>
-
-<p>
-The diamond in the middle is the chosen pullback of \((f_2, g_1)\).
-</p>
-
-<ul class="org-ul">
-<li>The horizontal composition of 2-cells is induced by the universal property of pullbacks. Take two composable 2-cells \((\phi, \varphi)\) that make the following diagram commute:</li>
-</ul>
-
-
-<div id="orgd19a0ff" class="figure">
-<p><img src="../Images/horizontal-composition-2cells-span.png" alt="horizontal-composition-2cells-span.png" width="400px" />
-</p>
-</div>
-
-<p>
-The commutativity of the solid arrow diagram and the universal property of the pullback \(X' \times_B Y'\) imply the existence of a unique morphism \(\theta\) such that the above diagram commutes. Such a \(\theta\) is then defined to be the horizontal composition of \(\phi * \varphi\).
-</p>
-<ul class="org-ul">
-<li>The associator and the left and right unitor are defined similarly.</li>
-</ul>
-
 </div>
 </div>
 </div>
+
+<div id="outline-container-org0f2e58a" class="outline-2">
+<h2 id="org0f2e58a"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> Mates</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: James leslie</p>
-<p class="date">Created: 2020-10-03 Sat 17:23</p>
+<p class="date">Created: 2020-10-03 Sat 17:25</p>
 </div>
 </body>
 </html>

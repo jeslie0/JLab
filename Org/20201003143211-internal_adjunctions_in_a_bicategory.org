@@ -1,0 +1,37 @@
+#+title: Internal Adjunctions in a Bicategory
+#+author: James leslie
+#+options: h:2 num:t tex:t
+#+STARTUP: latexpreview inlineimages hideblocks
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+* Idea
+We can think of adjunctions as living in the 2-category \(\textbf{Cat}\), with their data being defined as properties of 1-cells and 2-cells, plus the triangle identities. We can abstract this notion to an arbitrary bicategory.
+* Definitions
+#+BEGIN_definition
+An /internal adjuntion/ \(f \dashv g\) in an bicategory B is a quadruple \(f,g,\eta, \epsilon\) consisting of:
+- 1-cells: \(f:X \rightarrow Y\) and \(g:Y \rightarrow X\);
+- 2-cells: \(eta:1_X \rightarrow gf\) and \(\epsilon:fg \rightarrow 1_Y\).
+
+  These maps are subject to the following two commutative diagrams, that we call the left and right triangle identities:
+
+  #+BEGIN_SRC latex :fit yes :file ../Images/internal-adjunction-triangle-identities.png :imagemagick yes :iminoptions -density 600  :headers '("\\usepackage{tikz-cd}") :results none
+        \definecolor{col1}{HTML}{B2B2B2}
+        \begin{tikzcd}[color=col1]
+    f 1_X \arrow[r, "1_f * \eta"] \arrow[rrdd, "r_f"'] & f(gf) \arrow[r, "{a^{-1}_{f,g,f}}"] & (fg)f \arrow[d, "\epsilon * 1_f"] & 1_X g \arrow[r, "\eta * 1_g"] \arrow[rrdd, "l_g"'] & (gf)g \arrow[r, "{a_{g,f,g}}"] & g(fg) \arrow[d, "1_g * \epsilon"] \\
+                                                     &                                      & 1_Yf \arrow[d, "l_f"]             &                                                    &                                & g 1_Y \arrow[d, "r_g"]            \\
+                                                     &                                      & f                                 &                                                    &                                & g                                
+    \end{tikzcd}
+    #+END_SRC
+#+attr_html: :width 800px
+[[file:../Images/internal-adjunction-triangle-identities.png]]
+
+We call \(f\) and \(g\) the left and right adjoints, respectively. The 2-cells \(\eta\) and \(\epsilon\) are called the unit and counit, respectively.
+
+#+END_definition
+* Examples
+** 1-Adjunctions
+Every adjunction from 1-category theory gives an example of an internal adjunction in \(\textbf{Cat}\), with associator and unitors being identity maps.
+** Duals
+Every compact category, when regarded as a one object bicategory, has an internal adjunction given by duals. Saying that a one object bicategory has an internal adjunction is exactly saying that the monoidal category has duals.
+
+* TODO Mates

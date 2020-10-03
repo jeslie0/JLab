@@ -1,12 +1,9 @@
 #+TITLE: Sitemap
-#+author: James leslie
-#+options: h:2 num:t tex:t
-#+STARTUP: latexpreview inlineimages hideblocks
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-
 
 - [[file:20200929150428-bicategories.org][Bicategories]]
 - [[file:20201001153515-category_of_elements.org][Category of Elements]]
 - [[file:20201001162813-cleavage.org][Cleavage]]
+- [[file:20201002154933-cubical_sets.org][Cubical Sets]]
 - [[file:20201001140349-grothendieck_fibrations.org][Grothendieck Fibrations]]
+- [[file:20201003143211-internal_adjunctions_in_a_bicategory.org][Internal Adjunctions in a Bicategory]]
 - [[file:20200929203737-monoidal_categories.org][Monoidal Categories]]

@@ -83,3 +83,65 @@ in \(B(V,Z)\) is commutative.
 * Examples
 ** Monoidal categories
 Every [[file:20200929203737-monoidal_categories.org][Monoidal Category]] is an example of a one object bicategory. This is a generalisation of the observation that a monoid is just a one object category.
+** Spans
+:PROPERTIES:
+:ID:       b13fa1ce-3ffa-4140-b5dc-7af32b6211b9
+:END:
+We can construct a bicategory from any category \(\mathcal C\) which has all pullbacks.
+
+#+BEGIN_definition
+Let \(\mathcal C\) be a category and \(A, B \in \mathcal C\). A /span/ from \(A\) to \(B\) in \(\mathcal C\) is a diagram
+\[A \xleftarrow{f_1} X \xrightarrow{f_2} B.\]
+#+END_definition
+
+#+BEGIN_definition
+Given a category \(\mathcal C\) which has all pullbacks, we form the /bicategory of spans of \(\mathcal C\)/, denoted \(\text{Span}(\mathcal C)\) or just \(\text{Span}\) for short, as follows:
+- Objects: The objects of \(\mathcal C\);
+- 1-cells: For objects \(A,B \in \mathcal C\), the objects of \(\text{Span}(A,B)\) are spans in \(C\) from \(A\) to \(B\).
+- 2-cells: Given two spans \((f_1, f_2), (g_1, g_2) \in \text{Span}(A, B)\), a morphism is a map \(\phi: X \rightarrow X'\) in \(\mathcal C\) that makes the following diagram commute:
+
+  #+BEGIN_SRC latex :fit yes :file ../Images/span-morphism.png :imagemagick yes :iminoptions -density 600 :headers '("\\usepackage{tikz-cd}") :results none
+    \definecolor{col1}{HTML}{B2B2B2}
+    \begin{tikzcd}[color=col1]
+        & X \ar[dl, "f_1"'] \ar[dr, "f_2"] \ar[dd, "\phi"] & \\
+        A & & B \\
+        & X' \ar[lu, "g_1"] \ar[ru, "g_2"']
+    \end{tikzcd}
+    #+END_SRC
+#+attr_html: :width 400px
+[[file:../Images/span-morphism.png]]
+  + Identity 2-cells are the identity arrows from \(\mathcal C\) with vertical composition inherited from \(\mathcal C\).
+- The horizontal composition of 1-cells is induced by chosen pullbacks. Given \((f_1, f_2) \in \text{Span}(A,B)\) and \((g_1, g_2) \in \text{Span}(B,C)\), we construct the horizontal composite to be \((f_1p_1, g_2p_2) \in \text{Span}(A, C)\) by pullback, which is shown in the following diagram:
+
+  #+BEGIN_SRC latex :fit yes :file ../Images/horizontal-composite-spans.png :imagemagick yes :iminoptions -density 600  :headers '("\\usepackage{tikz-cd}") :results none
+        \definecolor{col1}{HTML}{B2B2B2}
+        \begin{tikzcd}[color=col1]
+      &                                        & X \times_B Y \arrow[ld, "p_1"'] \arrow[rd, "p_2"] \arrow[lldd, "f_1p_1"', bend right=49] \arrow[rrdd, "g_2p_2", bend left=49] &                                        &   \\
+      & X \arrow[ld, "f_1"'] \arrow[rd, "f_2"] &                                                                                                                               & Y \arrow[ld, "g_1"'] \arrow[rd, "g_2"] &   \\
+    A &                                        & B                                                                                                                             &                                        & C
+    \end{tikzcd}
+    #+END_SRC
+#+attr_html: :width 400px
+[[file:../Images/horizontal-composite-spans.png]]
+
+  The diamond in the middle is the chosen pullback of \((f_2, g_1)\).
+
+- The horizontal composition of 2-cells is induced by the universal property of pullbacks. Take two composable 2-cells \((\phi, \varphi)\) that make the following diagram commute:
+
+  #+BEGIN_SRC latex :fit yes :file ../Images/horizontal-composition-2cells-span.png :imagemagick yes :iminoptions -density 600  :headers '("\\usepackage{tikz-cd}") :results none
+        \definecolor{col1}{HTML}{B2B2B2}
+        \begin{tikzcd}[color=col1]
+          &                                                            & X \times_B Y \arrow[ld, "p_1"'] \arrow[rd, "p_2"] \arrow[lldd, "f_1p_1"', bend right=49] \arrow[rrdd, "g_2p_2", bend left=49] \arrow[dddd, dashed, bend right, "\theta", near end] &                                                              &   \\
+      & X \arrow[ld, "f_1"'] \arrow[rd, "f_2"] \arrow[dd, "\phi"'] &                                                                                                                                                                & Y \arrow[ld, "f_1"'] \arrow[rd, "g_2"] \arrow[dd, "\varphi"] &   \\
+    A &                                                            & B                                                                                                                                                              &                                                              & C \\
+      & X' \arrow[ru, "f'_2", near sta] \arrow[lu, "f'_1"']                  &                                                                                                                                                                & Y' \arrow[lu, "g'_1"'] \arrow[ru, "g'_2"]                    &   \\
+      &                                                            & X'\times_B Y' \arrow[lu, "p'_1"'] \arrow[ru, "p'_2"] \arrow[lluu, "f'_1p'_1", bend left=49] \arrow[rruu, "g'_2p'_2"', bend right=49]                           &                                                              &  
+        \end{tikzcd}
+    #+END_SRC
+#+attr_html: :width 400px
+[[file:../Images/horizontal-composition-2cells-span.png]]
+
+The commutativity of the solid arrow diagram and the universal property of the pullback \(X' \times_B Y'\) imply the existence of a unique morphism \(\theta\) such that the above diagram commutes. Such a \(\theta\) is then defined to be the horizontal composition of \(\phi * \varphi\).
+- The associator and the left and right unitor are defined similarly.
+#+END_definition
+

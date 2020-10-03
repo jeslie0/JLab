@@ -17,4 +17,4 @@ Given a presheaf \(P\) as above, there is a canonical map \(\int P \rightarrow \
 :PROPERTIES:
 :ID:       e202f7dd-c011-44d0-a1e0-f33c0c755dab
 :END:
-The category of elements of a presheaf \(P\) can also be described as the comma category \((* \downarrow P)\), where the functor \(*: \mathbbm 1 \rightarrow \Set\) is the functor selecting the terminal object.
+The category of elements of a presheaf \(P\) can also be described as the comma category \((* \downarrow P)\), where the functor \(*: \mathbb 1 \rightarrow \operatorname{Set}\) is the functor selecting the terminal object.

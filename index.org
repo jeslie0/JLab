@@ -1,0 +1,12 @@
+#+TITLE: JLab
+#+author: James leslie
+#+options: h:2 num:t tex:t
+#+STARTUP: latexpreview inlineimages hideblocks
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+* Welcome!
+Welcome to the JLab, my personal repository of research notes. This is heavily inspired by the [[https://ncatlab.org/nlab/show/HomePage][nLab]] and lots of sources are nLab pages. 
+* List of files
+The JLab is currently in its infancy, in terms of functionality and content. I hope to have some searching ability implemented in the future, however currently the best thing to do is to just list the existing pages (as there are so few). This can be found [[file:Pages.html][here]].
+
+* How was this made?
+This wiki is being developed in the Emacs module [[https://orgmode.org/][org-mode]]. I can't recommend this piece of software enough; it is extremely versatile and can do more or less anything you want (with some practice). I use [[https://www.spacemacs.org/][spacemacs]] and the theme for the JLab unashamedly copies the [[https://github.com/nashamri/spacemacs-theme][spacemacs-dark]] theme. I suggest you check it out!
