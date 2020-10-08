@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-03 Sat 17:23 -->
+<!-- 2020-10-07 Wed 21:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bicategories</title>
@@ -246,55 +246,58 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1d5093c">1. Idea</a></li>
-<li><a href="#orge03b39d">2. Definition</a>
+<li><a href="#orge909fe4">1. Idea</a></li>
+<li><a href="#org5bc7086">2. Definition</a>
 <ul>
-<li><a href="#org755c06b">2.1. Objects</a></li>
-<li><a href="#orgb58c36b">2.2. Hom Categories</a></li>
-<li><a href="#orga7db290">2.3. Identity 1-Cells</a></li>
-<li><a href="#org16e93a2">2.4. Horizontal Composition</a></li>
-<li><a href="#org9c8f7ca">2.5. Associator</a></li>
-<li><a href="#org355b931">2.6. Unitors</a></li>
-<li><a href="#org69f27cd">2.7. Unity Axiom</a></li>
-<li><a href="#orgccc3f1e">2.8. Pentagon Axiom</a></li>
+<li><a href="#org624b51c">2.1. Objects</a></li>
+<li><a href="#org0a9c6c5">2.2. Hom Categories</a></li>
+<li><a href="#org7ea2292">2.3. Identity 1-Cells</a></li>
+<li><a href="#org3e75f80">2.4. Horizontal Composition</a></li>
+<li><a href="#org8587837">2.5. Associator</a></li>
+<li><a href="#org144a0d8">2.6. Unitors</a></li>
+<li><a href="#org4ee697a">2.7. Unity Axiom</a></li>
+<li><a href="#org6cf51fd">2.8. Pentagon Axiom</a></li>
 </ul>
 </li>
-<li><a href="#org4c1cf5a">3. Remarks</a>
+<li><a href="#orgafcf6f7">3. Remarks</a>
 <ul>
-<li><a href="#org9f73b89">3.1. Notation</a></li>
+<li><a href="#org7e659d8">3.1. Notation</a></li>
 </ul>
 </li>
-<li><a href="#orgd240494">4. <span class="todo TODO">TODO</span> Explanation</a></li>
-<li><a href="#orgb1962ae">5. Examples</a>
+<li><a href="#org36f2c79">4. <span class="todo TODO">TODO</span> Explanation</a></li>
+<li><a href="#org0ac63dd">5. Examples</a>
 <ul>
-<li><a href="#org308d4ef">5.1. Monoidal categories</a></li>
-<li><a href="#orge9a4adb">5.2. Spans</a></li>
+<li><a href="#org8f16ceb">5.1. Monoidal categories</a></li>
+<li><a href="#org87b18bf">5.2. Spans</a></li>
+<li><a href="#orgffe06e5">5.3. Bimodules</a></li>
 </ul>
 </li>
+<li><a href="#org63bd8c6">6. Unity</a></li>
+<li><a href="#org295ec3b">7. <span class="todo TODO">TODO</span> Pasting Diagrams</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1d5093c" class="outline-2">
-<h2 id="org1d5093c"><span class="section-number-2">1</span> Idea</h2>
+<div id="outline-container-orge909fe4" class="outline-2">
+<h2 id="orge909fe4"><span class="section-number-2">1</span> Idea</h2>
 </div>
 
-<div id="outline-container-orge03b39d" class="outline-2">
-<h2 id="orge03b39d"><span class="section-number-2">2</span> Definition</h2>
+<div id="outline-container-org5bc7086" class="outline-2">
+<h2 id="org5bc7086"><span class="section-number-2">2</span> Definition</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 A <i>bicategory</i> is a tuple \((B, 1, c, a, l, r)\) consisting of the following data
 </p>
 </div>
-<div id="outline-container-org755c06b" class="outline-3">
-<h3 id="org755c06b"><span class="section-number-3">2.1</span> Objects</h3>
+<div id="outline-container-org624b51c" class="outline-3">
+<h3 id="org624b51c"><span class="section-number-3">2.1</span> Objects</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 \(B\) is equipped with a class \(\operatorname{Ob}(B)=B_0\), whose elements are called <i>objects</i> or <i>0-cells</i> in \(B\). If \(X \in B_0\), we write \(X \in B\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgb58c36b" class="outline-3">
-<h3 id="orgb58c36b"><span class="section-number-3">2.2</span> Hom Categories</h3>
+<div id="outline-container-org0a9c6c5" class="outline-3">
+<h3 id="org0a9c6c5"><span class="section-number-3">2.2</span> Hom Categories</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 For each pair of objects \(X, Y \in B\), \(B\) is equipped with a category \(B(X,Y)\), called a <i>hom category</i>.
@@ -308,8 +311,8 @@ For each pair of objects \(X, Y \in B\), \(B\) is equipped with a category \(B(X
 </ul>
 </div>
 </div>
-<div id="outline-container-orga7db290" class="outline-3">
-<h3 id="orga7db290"><span class="section-number-3">2.3</span> Identity 1-Cells</h3>
+<div id="outline-container-org7ea2292" class="outline-3">
+<h3 id="org7ea2292"><span class="section-number-3">2.3</span> Identity 1-Cells</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 For each object \(X \in B\),
@@ -324,8 +327,8 @@ is a functor. We identify the functor \(1_X\) with the 1-cell \(1_X(*) \in B(X,X
 </p>
 </div>
 </div>
-<div id="outline-container-org16e93a2" class="outline-3">
-<h3 id="org16e93a2"><span class="section-number-3">2.4</span> Horizontal Composition</h3>
+<div id="outline-container-org3e75f80" class="outline-3">
+<h3 id="org3e75f80"><span class="section-number-3">2.4</span> Horizontal Composition</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 For each triple of objects \(X, Y, Z \in B\),
@@ -344,8 +347,8 @@ is a functor, called <i>horizontal composition</i>. For 1-cells \(f \in B(X, Y)\
 </ul>
 </div>
 </div>
-<div id="outline-container-org9c8f7ca" class="outline-3">
-<h3 id="org9c8f7ca"><span class="section-number-3">2.5</span> Associator</h3>
+<div id="outline-container-org8587837" class="outline-3">
+<h3 id="org8587837"><span class="section-number-3">2.5</span> Associator</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 For objects \(W, X, Y, Z \in B\),
@@ -364,8 +367,8 @@ is a natural isomorphism called the associator, between functors
 </p>
 </div>
 </div>
-<div id="outline-container-org355b931" class="outline-3">
-<h3 id="org355b931"><span class="section-number-3">2.6</span> Unitors</h3>
+<div id="outline-container-org144a0d8" class="outline-3">
+<h3 id="org144a0d8"><span class="section-number-3">2.6</span> Unitors</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 For each pair of objects \(X, Y \in B\),
@@ -384,14 +387,14 @@ The subscripts in \(c\) will often be omitted. Th subscripts in \(a\), \(l\), an
 </p>
 </div>
 </div>
-<div id="outline-container-org69f27cd" class="outline-3">
-<h3 id="org69f27cd"><span class="section-number-3">2.7</span> Unity Axiom</h3>
+<div id="outline-container-org4ee697a" class="outline-3">
+<h3 id="org4ee697a"><span class="section-number-3">2.7</span> Unity Axiom</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 The middle unity diagram
 </p>
 
-<div id="org2189090" class="figure">
+<div id="orgabe297d" class="figure">
 <p><img src="../Images/unity_diagram.png" alt="unity_diagram.png" width="400px" />
 </p>
 </div>
@@ -401,14 +404,14 @@ in \(B(V,X)\) is commutative.
 </p>
 </div>
 </div>
-<div id="outline-container-orgccc3f1e" class="outline-3">
-<h3 id="orgccc3f1e"><span class="section-number-3">2.8</span> Pentagon Axiom</h3>
+<div id="outline-container-org6cf51fd" class="outline-3">
+<h3 id="org6cf51fd"><span class="section-number-3">2.8</span> Pentagon Axiom</h3>
 <div class="outline-text-3" id="text-2-8">
 <p>
 The diagram
 </p>
 
-<div id="orgaa403cf" class="figure">
+<div id="orgbc08762" class="figure">
 <p><img src="../Images/pentagon_diagram.png" alt="pentagon_diagram.png" width="400px" />
 </p>
 </div>
@@ -419,12 +422,12 @@ in \(B(V,Z)\) is commutative.
 </div>
 </div>
 </div>
-<div id="outline-container-org4c1cf5a" class="outline-2">
-<h2 id="org4c1cf5a"><span class="section-number-2">3</span> Remarks</h2>
+<div id="outline-container-orgafcf6f7" class="outline-2">
+<h2 id="orgafcf6f7"><span class="section-number-2">3</span> Remarks</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org9f73b89" class="outline-3">
-<h3 id="org9f73b89"><span class="section-number-3">3.1</span> Notation</h3>
+<div id="outline-container-org7e659d8" class="outline-3">
+<h3 id="org7e659d8"><span class="section-number-3">3.1</span> Notation</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>We refer to a bicategory as \(B\), its class of objects.</li>
@@ -432,29 +435,29 @@ in \(B(V,Z)\) is commutative.
 </div>
 </div>
 </div>
-<div id="outline-container-orgd240494" class="outline-2">
-<h2 id="orgd240494"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> Explanation</h2>
+<div id="outline-container-org36f2c79" class="outline-2">
+<h2 id="org36f2c79"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> Explanation</h2>
 </div>
-<div id="outline-container-orgb1962ae" class="outline-2">
-<h2 id="orgb1962ae"><span class="section-number-2">5</span> Examples</h2>
+<div id="outline-container-org0ac63dd" class="outline-2">
+<h2 id="org0ac63dd"><span class="section-number-2">5</span> Examples</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org308d4ef" class="outline-3">
-<h3 id="org308d4ef"><span class="section-number-3">5.1</span> Monoidal categories</h3>
+<div id="outline-container-org8f16ceb" class="outline-3">
+<h3 id="org8f16ceb"><span class="section-number-3">5.1</span> Monoidal categories</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 Every <a href="20200929203737-monoidal_categories.html">Monoidal Category</a> is an example of a one object bicategory. This is a generalisation of the observation that a monoid is just a one object category.
 </p>
 </div>
 </div>
-<div id="outline-container-orge9a4adb" class="outline-3">
-<h3 id="orge9a4adb"><span class="section-number-3">5.2</span> Spans</h3>
+<div id="outline-container-org87b18bf" class="outline-3">
+<h3 id="org87b18bf"><span class="section-number-3">5.2</span> Spans</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 We can construct a bicategory from any category \(\mathcal C\) which has all pullbacks.
 </p>
 
-<div class="definition" id="org895a02c">
+<div class="definition" id="org5e8f312">
 <p>
 Let \(\mathcal C\) be a category and \(A, B \in \mathcal C\). A <i>span</i> from \(A\) to \(B\) in \(\mathcal C\) is a diagram
 \[A \xleftarrow{f_1} X \xrightarrow{f_2} B.\]
@@ -462,7 +465,7 @@ Let \(\mathcal C\) be a category and \(A, B \in \mathcal C\). A <i>span</i> from
 
 </div>
 
-<div class="definition" id="orgde59afd">
+<div class="definition" id="org80d6082">
 <p>
 Given a category \(\mathcal C\) which has all pullbacks, we form the <i>bicategory of spans of \(\mathcal C\)</i>, denoted \(\text{Span}(\mathcal C)\) or just \(\text{Span}\) for short, as follows:
 </p>
@@ -473,7 +476,7 @@ Given a category \(\mathcal C\) which has all pullbacks, we form the <i>bicatego
 </ul>
 
 
-<div id="orgac8182e" class="figure">
+<div id="org01067b0" class="figure">
 <p><img src="../Images/span-morphism.png" alt="span-morphism.png" width="400px" />
 </p>
 </div>
@@ -485,7 +488,7 @@ Given a category \(\mathcal C\) which has all pullbacks, we form the <i>bicatego
 </ul>
 
 
-<div id="org18346cd" class="figure">
+<div id="org8b9f888" class="figure">
 <p><img src="../Images/horizontal-composite-spans.png" alt="horizontal-composite-spans.png" width="400px" />
 </p>
 </div>
@@ -499,7 +502,7 @@ The diamond in the middle is the chosen pullback of \((f_2, g_1)\).
 </ul>
 
 
-<div id="orgd19a0ff" class="figure">
+<div id="org6ab2c66" class="figure">
 <p><img src="../Images/horizontal-composition-2cells-span.png" alt="horizontal-composition-2cells-span.png" width="400px" />
 </p>
 </div>
@@ -514,11 +517,54 @@ The commutativity of the solid arrow diagram and the universal property of the p
 </div>
 </div>
 </div>
+<div id="outline-container-orgffe06e5" class="outline-3">
+<h3 id="orgffe06e5"><span class="section-number-3">5.3</span> Bimodules</h3>
+<div class="outline-text-3" id="text-5-3">
+<div class="definition" id="orgba58cea">
+<p>
+Let \(R,S\) be rings. A <i>\((R,S)\)-bimodule</i> is an abelian group \(M\) with:
+</p>
+<ul class="org-ul">
+<li>a left \(R\)-module structure \((x,m) \mapsto xm\);</li>
+<li>a right \(S\)-module structure \((m,s) \mapsto ms\)</li>
+</ul>
+<p>
+Such that the two actions are compatible: \((xm)s = x(ms)\) for all \((x,m,s) \in R \times M \times S\).
+</p>
+
+<p>
+A <i>bimodule homomorphism</i> is an abelian group homomorphism \(f: M \rightarrow N\) which is both a left \(R\)-module and right \(S\)- module homomorphism.
+</p>
+
+</div>
+
+<div class="definition" id="orgc93d6c5">
+<p>
+There is a bicategory \(\textbf{Bimod}\) with the following data:
+</p>
+<ul class="org-ul">
+<li>Objects: (unital and associative) rings;</li>
+<li>1 and 2-cells: \(\textbf{Bimod}(R,S)\) is the category of \((R,S)\)-bimodules, with respective homomorphisms;</li>
+<li>The identity 1-cell of a ring \(R\) is \(R\) regarded as an \((R,R)\)-bimodule.</li>
+<li>Horizontal composition is formed by tensoring.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org63bd8c6" class="outline-2">
+<h2 id="org63bd8c6"><span class="section-number-2">6</span> Unity</h2>
+</div>
+
+<div id="outline-container-org295ec3b" class="outline-2">
+<h2 id="org295ec3b"><span class="section-number-2">7</span> <span class="todo TODO">TODO</span> Pasting Diagrams</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: James leslie</p>
-<p class="date">Created: 2020-10-03 Sat 17:23</p>
+<p class="date">Created: 2020-10-07 Wed 21:25</p>
 </div>
 </body>
 </html>

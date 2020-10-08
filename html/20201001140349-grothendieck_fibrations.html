@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-01 Thu 22:42 -->
+<!-- 2020-10-07 Wed 21:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Grothendieck Fibrations</title>
@@ -246,23 +246,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd786cfc">1. Definition</a></li>
-<li><a href="#org5e7ee1f">2. Examples</a>
+<li><a href="#org55f2088">1. Definition</a></li>
+<li><a href="#org9e1d2d2">2. Properties</a></li>
+<li><a href="#org6bdf533">3. Examples</a>
 <ul>
-<li><a href="#org2468872">2.1. The category of elements</a></li>
+<li><a href="#orgc654a0b">3.1. The category of elements</a></li>
 </ul>
 </li>
-<li><a href="#orgac68d71">3. References</a></li>
+<li><a href="#orgde3ec9d">4. References</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd786cfc" class="outline-2">
-<h2 id="orgd786cfc"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-org55f2088" class="outline-2">
+<h2 id="org55f2088"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
-<div class="definition" id="orgcec2c42">
+<div class="definition" id="org99fc306">
 <p>
-Let \(P:E \rightarrow B\) be a functor and \(\phi:e' \rightarrow e\) be an arrow in a category \(E\). We say that \(\phi\) is <i>cartesian with respect to \(P\)</i> if for any arrows \(\psi:e'' \rightarrow e\) in \(E\) and \(g:Pe'' \rightarrow Pe'\) in \(B\) such that \(P\phi \circ g = P\psi\), there exists a unique \(\chi : e'' \rightarrow e'\) such that \(\psi = \phi \circ \chi\) and \(P\chi = g\).
+Let \(P:E \rightarrow B\) be a functor and \(\phi:e' \rightarrow e\) be an arrow in \(E\). We say that \(\phi\) is <i>cartesian with respect to \(P\)</i> if for any arrows \(\psi:e'' \rightarrow e\) in \(E\) and \(g:Pe'' \rightarrow Pe'\) in \(B\) such that \(P\phi \circ g = P\psi\), there exists a unique \(\chi : e'' \rightarrow e'\) such that \(\psi = \phi \circ \chi\) and \(P\chi = g\).
 </p>
 
 </div>
@@ -273,45 +274,71 @@ Note that this is a lifting condition. We can summarise this in the following di
 </p>
 
 
-<div id="orgbceba79" class="figure">
+<div id="orgb3555b3" class="figure">
 <p><img src="../Images/cartesian-morphism.png" alt="cartesian-morphism.png" width="600px" />
 </p>
 </div>
 
-<div class="definition" id="org6775775">
+<div class="definition" id="org059c82a">
 <p>
-A functor \(P:E \rightarrow B\) is a (Grothendieck) <i>fibration</i> if for any \(e \in E\) and \(f:b \rightarrow Pe\), there is a cartesian arrow \(\phi:e' \rightarrow e\) with \(P\phi = f\). Such an arrow is called a cartesian lifting of \(f\) to \(e\) and a choice of cartesian lifting for every \(e\) and \(f\) is called a <i>cleavage</i>.
+A functor \(P:E \rightarrow B\) is a (Grothendieck) <i>fibration</i> if for any \(e \in E\) and \(f:b \rightarrow Pe \in B\), there is a cartesian arrow \(\phi:e' \rightarrow e\) with \(P\phi = f\). Such an arrow is called a cartesian lifting of \(f\) to \(e\) and a choice of cartesian lifting for every \(e\) and \(f\) is called a <i><a href="20201001162813-cleavage.html">cleavage</a></i>.
 </p>
 
 </div>
 </div>
 </div>
 
-<div id="outline-container-org5e7ee1f" class="outline-2">
-<h2 id="org5e7ee1f"><span class="section-number-2">2</span> Examples</h2>
+<div id="outline-container-org9e1d2d2" class="outline-2">
+<h2 id="org9e1d2d2"><span class="section-number-2">2</span> Properties</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+<a href="https://pdf.sciencedirectassets.com/271538/1-s2.0-S0304397500X03866/1-s2.0-030439759390169T/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIHmfu2njyoRXkOW3AS3rDYpIc6gc5FqMycyQkElsfZZAAiBWkiRb4k9sI70Kz3XJh1s%2Bm1hFVanyjaFAL0vUALNVbSq9Awjw%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAMaDDA1OTAwMzU0Njg2NSIMdimKT8m0f0K%2BwLszKpEDwfYdqcsbnHJsXWaAdL4J%2BCxEmbnJNiwQAhdcKSEINhewBXp5Ph9vJQir%2Fi4D3Gz7DvoZ5srNdgzOtZ8E7PckbGLaMDeTKdUmT67Oge6LDMmVgjFcG1HzM7JOonQtURpXDLh7zg1eRdtHmJmsLpy26i6Gqqir63VvTuqg%2B08nMXGEwvEGzaXxvIxYVkmH7He6zNIFuDv7aV4lrguUq7AXJZXaYpHyHhdx2wt7qw3l%2FJwzRdu4%2BCOZhHCbllirfJ7N1bzzdNqb2%2FJUv4gaFC2NTg1O4byogxRcX16wkOIvOT9yD1q0LfOj1PWJGgv4%2FEvNRO%2FheP%2FyOJ2PVUq74xvjgwiLD%2BNAjxJ7CdTWyU8cpw1CE3EcYU20umcWgh2GH9aCt1glhKXCx9SPpBT3FM1lUd9syR%2BKK%2Fq%2FJNEr6HSLHkReDXjZXbaAQTmnxe%2BLFs8FXBfrUFEAXCtsp%2FQfxa5kQjl1Jz3QUsViZRKezOAQeqqvd0A7%2FfHVfFHyrPuSKvyQ%2B0XH%2BEv6gI9DUsRzpQd0FZ8w9Pzx%2BwU67AE9RRjIZOoPewCETStNGlbGLvXpqVZ0zeikplkhQCDBVd%2FeWEvJLvm0bk7azBBVQOTuBzy5Qe312Fawv0mYRjlMPwfz%2Fe13pZvKoCm%2Brdxfrj9bspwjzPurNKMusfHvvQ%2B4i3LLrKGpPHbF34M2FOUheTKgXQgQfHTnKk3PAnZ0IOqhZum2B7qtumoz9Lcz7zkH8ibReWmwMror8J9dDe1DW%2Fmuwz9bBt7X%2FTFgFYcdIzVJ2K1O1bMCX56zzmW%2BiATYp2K2v3Zc3QOA0LKwHPh%2BD7EnTkvXaWrg5cXWM4uCuJ%2F%2FxrirZhlNwtwQKQ%3D%3D&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20201006T154601Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=300&amp;X-Amz-Credential=ASIAQ3PHCVTY4YNI4JID%2F20201006%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=6caecd9dc3498654d84735b4b323a4488bbc87ccebac7411712176a325f7ec08&amp;hash=304b251add92cf4db406a39b246ec11c309001743c52981a035ee616343d2e5e&amp;host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&amp;pii=030439759390169T&amp;tid=spdf-ba61438e-3781-4b02-8f19-965595a17576&amp;sid=20bbf1da51953941e63b7eb3f1c610859cfagxrqa&amp;type=client">source</a>
+Given a functor \(p:E \rightarrow B\) and object \(b \in B\), we can form a category \(E_b\) of fibres over \(b\).
+</p>
+
+<div class="definition" id="org836f417">
+<p>
+Let \(p:E \rightarrow B\) be a functor. For \(b \in B\) the fibre \(E_b\) is the category with the following data:
+</p>
+<ul class="org-ul">
+<li>objects: \(e \in E\) such that \(Pe = b\);</li>
+<li>morphisms: \(f: e \rightarrow e'\) with \(Pf = 1_b\).</li>
+</ul>
+
+<p>
+We think of \(E_b\) as having objects above \(b\), with <i>vertical</i> morphisms.
+</p>
+
 </div>
-<div id="outline-container-org2468872" class="outline-3">
-<h3 id="org2468872"><span class="section-number-3">2.1</span> The category of elements</h3>
-<div class="outline-text-3" id="text-2-1">
+</div>
+</div>
+
+
+<div id="outline-container-org6bdf533" class="outline-2">
+<h2 id="org6bdf533"><span class="section-number-2">3</span> Examples</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgc654a0b" class="outline-3">
+<h3 id="orgc654a0b"><span class="section-number-3">3.1</span> The category of elements</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 The canonical example of a Grothendieck fibration is the functor from the <a href="20201001153515-category_of_elements.html">category of elements</a> of a presheaf, to its base category.
 </p>
 
-<div class="theorem" id="orgd50f524">
+<div class="theorem" id="orgbb833ea">
 <p>
 For any presheaf \(P: \mathbb A ^\text{op} \rightarrow \operatorname{Set}\), the forgetful functor from the category of elements of \(P\) to \(\mathbb A\) is a Grothendieck fibration.
 </p>
 
 </div>
 
-<div class="proof" id="org2d3dd3c">
+<div class="proof" id="org2ce9a9e">
 <p>
 Let \((A,x)\) be an object in the category of elements of a presheaf \(P: \mathbb A ^\text{op} \rightarrow \operatorname{Set}\) and let \(f:B \rightarrow A\) be a map in \(\mathbb A\). Suppose we have maps \(\psi\) and \(g\) as in the following diagram:
 </p>
 
 
-<div id="orgdc0f853" class="figure">
+<div id="orgccfca37" class="figure">
 <p><img src="../Images/Grothendieck-fib-category-of-elements.png" alt="Grothendieck-fib-category-of-elements.png" width="600px" />
 </p>
 </div>
@@ -332,13 +359,13 @@ This allows us to lift \(g\) to a map \(g: (C, y) \rightarrow (B, (Pf)(x))\), wh
 </div>
 </div>
 </div>
-<div id="outline-container-orgac68d71" class="outline-2">
-<h2 id="orgac68d71"><span class="section-number-2">3</span> References</h2>
+<div id="outline-container-orgde3ec9d" class="outline-2">
+<h2 id="orgde3ec9d"><span class="section-number-2">4</span> References</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: James leslie</p>
-<p class="date">Created: 2020-10-01 Thu 22:42</p>
+<p class="date">Created: 2020-10-07 Wed 21:25</p>
 </div>
 </body>
 </html>

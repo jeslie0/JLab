@@ -5,7 +5,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
 * Definition
-Let \(P:E \rightarrow B\) be a functor. A /cleavage/ of \(p\) is a choice, for each \(e \in E\) and \(u : b \rightarrow Pe\), of a single [[id:73fde245-85d2-4e0a-bc4c-ce37e9105069][cartesian arrow]] \(f:e' \rightarrow e\) such that \(Pf = u\).
+Let \(P:E \rightarrow B\) be a functor. A /cleavage/ of \(p\) is a choice, for each \(e \in E\) and \(u : b \rightarrow Pe\), of a single [[file:20201001140349-grothendieck_fibrations.org][cartesian arrow]] \(f:e' \rightarrow e\) such that \(Pf = u\).
 ** Cloven functors
 We say that a functor equipped with a cleavage is /cloven/.
 ** Normal cleavage

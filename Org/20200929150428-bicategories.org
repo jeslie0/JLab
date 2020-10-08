@@ -144,4 +144,26 @@ Given a category \(\mathcal C\) which has all pullbacks, we form the /bicategory
 The commutativity of the solid arrow diagram and the universal property of the pullback \(X' \times_B Y'\) imply the existence of a unique morphism \(\theta\) such that the above diagram commutes. Such a \(\theta\) is then defined to be the horizontal composition of \(\phi * \varphi\).
 - The associator and the left and right unitor are defined similarly.
 #+END_definition
+** Bimodules
+
+#+BEGIN_definition
+Let \(R,S\) be rings. A /\((R,S)\)-bimodule/ is an abelian group \(M\) with:
+- a left \(R\)-module structure \((x,m) \mapsto xm\);
+- a right \(S\)-module structure \((m,s) \mapsto ms\)
+Such that the two actions are compatible: \((xm)s = x(ms)\) for all \((x,m,s) \in R \times M \times S\).
+
+A /bimodule homomorphism/ is an abelian group homomorphism \(f: M \rightarrow N\) which is both a left \(R\)-module and right \(S\)- module homomorphism.
+#+END_definition
+
+#+BEGIN_definition
+There is a bicategory \(\textbf{Bimod}\) with the following data:
+- Objects: (unital and associative) rings;
+- 1 and 2-cells: \(\textbf{Bimod}(R,S)\) is the category of \((R,S)\)-bimodules, with respective homomorphisms;
+- The identity 1-cell of a ring \(R\) is \(R\) regarded as an \((R,R)\)-bimodule.
+- Horizontal composition is formed by tensoring.
+#+END_definition
+
+* Unity
+
+* TODO Pasting Diagrams
 

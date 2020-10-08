@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-03 Sat 17:25 -->
+<!-- 2020-10-07 Wed 21:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Internal Adjunctions in a Bicategory</title>
@@ -246,38 +246,37 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org17a4445">1. Idea</a></li>
-<li><a href="#org4e44c88">2. Definitions</a></li>
-<li><a href="#orgcc8637c">3. Examples</a>
+<li><a href="#orgae8f773">1. Idea</a></li>
+<li><a href="#orgd22c741">2. Definitions</a></li>
+<li><a href="#orgd735729">3. Examples</a>
 <ul>
-<li><a href="#orgd9cade2">3.1. 1-Adjunctions</a></li>
-<li><a href="#orgf594b10">3.2. Duals</a></li>
+<li><a href="#org9948f5e">3.1. 1-Adjunctions</a></li>
+<li><a href="#org91b32a9">3.2. Duals</a></li>
 </ul>
 </li>
-<li><a href="#org0f2e58a">4. <span class="todo TODO">TODO</span> Mates</a></li>
+<li><a href="#org08c078a">4. <span class="todo TODO">TODO</span> Mates</a></li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org17a4445" class="outline-2">
-<h2 id="org17a4445"><span class="section-number-2">1</span> Idea</h2>
+<div id="outline-container-orgae8f773" class="outline-2">
+<h2 id="orgae8f773"><span class="section-number-2">1</span> Idea</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-We can think of adjunctions as living in the 2-category \(\textbf{Cat}\), with their data being defined as properties of 1-cells and 2-cells, plus the triangle identities. We can abstract this notion to an arbitrary bicategory.
+We can think of adjunctions as living in the 2-category \(\textbf{Cat}\), with their data being defined as properties of 1-cells and 2-cells, plus the triangle identities. We can abstract this notion to an arbitrary <a href="20200929150428-bicategories.html">bicategory</a>.
 </p>
 </div>
 </div>
-<div id="outline-container-org4e44c88" class="outline-2">
-<h2 id="org4e44c88"><span class="section-number-2">2</span> Definitions</h2>
+<div id="outline-container-orgd22c741" class="outline-2">
+<h2 id="orgd22c741"><span class="section-number-2">2</span> Definitions</h2>
 <div class="outline-text-2" id="text-2">
-<div class="definition" id="org7512c21">
+<div class="definition" id="org2ef40c2">
 <p>
 An <i>internal adjuntion</i> \(f \dashv g\) in an bicategory B is a quadruple \(f,g,\eta, \epsilon\) consisting of:
 </p>
 <ul class="org-ul">
 <li>1-cells: \(f:X \rightarrow Y\) and \(g:Y \rightarrow X\);</li>
 <li><p>
-2-cells: \(eta:1_X \rightarrow gf\) and \(\epsilon:fg \rightarrow 1_Y\).
+2-cells: \(\eta:1_X \rightarrow gf\) and \(\epsilon:fg \rightarrow 1_Y\).
 </p>
 
 <p>
@@ -286,7 +285,7 @@ These maps are subject to the following two commutative diagrams, that we call t
 </ul>
 
 
-<div id="org4598a5e" class="figure">
+<div id="org15794ee" class="figure">
 <p><img src="../Images/internal-adjunction-triangle-identities.png" alt="internal-adjunction-triangle-identities.png" width="800px" />
 </p>
 </div>
@@ -298,20 +297,20 @@ We call \(f\) and \(g\) the left and right adjoints, respectively. The 2-cells \
 </div>
 </div>
 </div>
-<div id="outline-container-orgcc8637c" class="outline-2">
-<h2 id="orgcc8637c"><span class="section-number-2">3</span> Examples</h2>
+<div id="outline-container-orgd735729" class="outline-2">
+<h2 id="orgd735729"><span class="section-number-2">3</span> Examples</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgd9cade2" class="outline-3">
-<h3 id="orgd9cade2"><span class="section-number-3">3.1</span> 1-Adjunctions</h3>
+<div id="outline-container-org9948f5e" class="outline-3">
+<h3 id="org9948f5e"><span class="section-number-3">3.1</span> 1-Adjunctions</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Every adjunction from 1-category theory gives an example of an internal adjunction in \(\textbf{Cat}\), with associator and unitors being identity maps.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf594b10" class="outline-3">
-<h3 id="orgf594b10"><span class="section-number-3">3.2</span> Duals</h3>
+<div id="outline-container-org91b32a9" class="outline-3">
+<h3 id="org91b32a9"><span class="section-number-3">3.2</span> Duals</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Every compact category, when regarded as a one object bicategory, has an internal adjunction given by duals. Saying that a one object bicategory has an internal adjunction is exactly saying that the monoidal category has duals.
@@ -320,13 +319,13 @@ Every compact category, when regarded as a one object bicategory, has an interna
 </div>
 </div>
 
-<div id="outline-container-org0f2e58a" class="outline-2">
-<h2 id="org0f2e58a"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> Mates</h2>
+<div id="outline-container-org08c078a" class="outline-2">
+<h2 id="org08c078a"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> Mates</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: James leslie</p>
-<p class="date">Created: 2020-10-03 Sat 17:25</p>
+<p class="date">Created: 2020-10-07 Wed 21:25</p>
 </div>
 </body>
 </html>

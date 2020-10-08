@@ -1,0 +1,51 @@
+#+title: Models of Dependent Type Theory
+#+author: James leslie
+#+options: h:2 num:t tex:t
+#+STARTUP: latexpreview inlineimages hideblocks
+#+LATEX_HEADER: \newcommand{\Fam}{\operatorname{Fam}} \newcommand{\Ty}{\operatorname{Ty}} \newcommand{\Tm}{\operatorname{Tm}}
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+#+BEGIN_SRC latex-macros
+  \newcommand{\Fam}{\operatorname{Fam}}
+\newcommand{\Ty}{\operatorname{Ty}} \newcommand{\Tm}{\operatorname{Tm}}
+#+END_SRC
+* Idea
+Needs to be updated. Idea is to form a category from the contexts and terms of the type theory. Several different but related ways to do this.
+* Contextual Categories
+* Categories with Attributes
+* TODO Categories with Families
+#+BEGIN_definition
+The category \(\Fam\) of families of sets is defined by the following data:
+- objects: pairs \((B^0, B^1)\) where \(B^0\) is a set and \((B^1_b)_{b \in B^0}\) is a family of sets, indexed by \(B^0\);
+- morphisms: \(f : (B^0, B^1) \rightarrow (C^0, C^1)\) is a pair \((f^0, f^1)\), where \(f^0:B^0 \rightarrow C^0\) is a function \(f^1 = (f^1_b)_{b \in B^0}\) is a family of functions \(f^1_b : B^1(b) \rightarrow C^1(f^0(b))\).
+-
+  Equivalently, \(\Fam\) is the category \(\textbf{Set}^\rightarrow\).
+#+END_definition
+
+#+BEGIN_definition
+A /category with families/ (CwF) is given by the following data:
+- a category \(\mathcal C\) with a terminal object;
+- a functor \(\mathcal F = (\Ty, \Tm):\mathcal C ^ \text{op} \rightarrow \Fam\);
+- a comprehension operation, which given an object \(\Gamma \in \mathcal \C\) and \(A \in \Ty(\Gamma)\) assigns an object \(\Gamma.A\) and two projections \(p_{\Gamma.A} : \Gamma. A \rightarrow \Gamma\) and \(q_{\Gamma.A} \in \Tm(\Gamma.A, A[p_{\Gamma.A}])\) satisfying the following universal property: for all \(\gamma : \Delta \rightarrow \Gamma\) and \(a \in \Tm(\Delta, A[ \gamma ])\), there is a unique \(\langle \gamma, a \rangle : \Delta \rightarrow \Gamma .\A\) such that \(p_{\Gamma.A} \circ \langle \gamma, a \rangle = \gamma\) and \(q_{\Gamma.A}[\langle \gamma, a \rangle] = a.\)
+#+END_definition
+
+As each \(\mathcal F (\Gamma)\) is a pair, we are justified in splitting it up into its components.
+
+#+BEGIN_definition
+A category with families is contextual if there is length function \(l : \text{Ob}(\mathcal C) \rightarrow \mathbb N\) such that \(l(\Gamma) = 0\) if and only if \(\Gamma = 1\), the terminal object, and \(l(\Gamma) = n+1\) if there are unique \(\Delta \in \mathcal C\) and \(A \in \Ty(\Delta)\) such that \(\Gamma = \Delta.A\) and \(l(\Delta) = n\).
+#+END_definition
+
+* Comprehension Categories
+[[https://pdf.sciencedirectassets.com/271538/1-s2.0-S0304397500X03866/1-s2.0-030439759390169T/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIHmfu2njyoRXkOW3AS3rDYpIc6gc5FqMycyQkElsfZZAAiBWkiRb4k9sI70Kz3XJh1s%2Bm1hFVanyjaFAL0vUALNVbSq9Awjw%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAMaDDA1OTAwMzU0Njg2NSIMdimKT8m0f0K%2BwLszKpEDwfYdqcsbnHJsXWaAdL4J%2BCxEmbnJNiwQAhdcKSEINhewBXp5Ph9vJQir%2Fi4D3Gz7DvoZ5srNdgzOtZ8E7PckbGLaMDeTKdUmT67Oge6LDMmVgjFcG1HzM7JOonQtURpXDLh7zg1eRdtHmJmsLpy26i6Gqqir63VvTuqg%2B08nMXGEwvEGzaXxvIxYVkmH7He6zNIFuDv7aV4lrguUq7AXJZXaYpHyHhdx2wt7qw3l%2FJwzRdu4%2BCOZhHCbllirfJ7N1bzzdNqb2%2FJUv4gaFC2NTg1O4byogxRcX16wkOIvOT9yD1q0LfOj1PWJGgv4%2FEvNRO%2FheP%2FyOJ2PVUq74xvjgwiLD%2BNAjxJ7CdTWyU8cpw1CE3EcYU20umcWgh2GH9aCt1glhKXCx9SPpBT3FM1lUd9syR%2BKK%2Fq%2FJNEr6HSLHkReDXjZXbaAQTmnxe%2BLFs8FXBfrUFEAXCtsp%2FQfxa5kQjl1Jz3QUsViZRKezOAQeqqvd0A7%2FfHVfFHyrPuSKvyQ%2B0XH%2BEv6gI9DUsRzpQd0FZ8w9Pzx%2BwU67AE9RRjIZOoPewCETStNGlbGLvXpqVZ0zeikplkhQCDBVd%2FeWEvJLvm0bk7azBBVQOTuBzy5Qe312Fawv0mYRjlMPwfz%2Fe13pZvKoCm%2Brdxfrj9bspwjzPurNKMusfHvvQ%2B4i3LLrKGpPHbF34M2FOUheTKgXQgQfHTnKk3PAnZ0IOqhZum2B7qtumoz9Lcz7zkH8ibReWmwMror8J9dDe1DW%2Fmuwz9bBt7X%2FTFgFYcdIzVJ2K1O1bMCX56zzmW%2BiATYp2K2v3Zc3QOA0LKwHPh%2BD7EnTkvXaWrg5cXWM4uCuJ%2F%2FxrirZhlNwtwQKQ%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201006T154601Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTY4YNI4JID%2F20201006%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=6caecd9dc3498654d84735b4b323a4488bbc87ccebac7411712176a325f7ec08&hash=304b251add92cf4db406a39b246ec11c309001743c52981a035ee616343d2e5e&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=030439759390169T&tid=spdf-ba61438e-3781-4b02-8f19-965595a17576&sid=20bbf1da51953941e63b7eb3f1c610859cfagxrqa&type=client][source]]
+#+BEGIN_definition
+A /comprehension category/ is a functor \(P:E \rightarrow B^\rightarrow\) satisfying:
+1. \(\text{cod} \circ P : R \rightarrow B\) is a Grothendieck fibration.
+2. \(f\) is cartesian in \(E\) implies that \(Pf\) is a pullback in \(B\).
+
+We say that \(P\) is a full comprehension category when \(P\) is a fully faithful functor. It is cloven or split whenever the Grothendieck fibration is cloven or split.
+#+END_definition
+
+We now show how to construct a comprehension category from a dependent type theory \(\mathcal T\). Define the category \(B\) to have as contexts as objects and context morphisms as morphisms. The category \(E\) has as objects equivalence classes of judgements \([\Gamma \vdash A : \text{Type}]\) with morphisms \([\Gamma \vdash A : \text{Type}] \rightarrow [\Delta \vdash B : \text{Type}]\) being pairs \((f: \Gamma \rightarrow \Delta) \in B, \Gamma, x : A \vdash b : B(f)\). The functor \(P\) takes an object \(\Gamma \vdash A : \text{Type}\) to the projection morphism \(p_A: \Gamma.A \rightarrow \Gamma\).
+
+
+
+

@@ -14,8 +14,9 @@ h3 {
     font-weight: bold;
 }
 
-p.a {
-    font-family: ;
+figure {
+    max-width: 100%;
+    height: auto;
 }
 body {
     color: #B2B2B2;

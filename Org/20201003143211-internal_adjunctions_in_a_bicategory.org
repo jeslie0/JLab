@@ -3,14 +3,13 @@
 #+options: h:2 num:t tex:t
 #+STARTUP: latexpreview inlineimages hideblocks
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-
 * Idea
-We can think of adjunctions as living in the 2-category \(\textbf{Cat}\), with their data being defined as properties of 1-cells and 2-cells, plus the triangle identities. We can abstract this notion to an arbitrary bicategory.
+We can think of adjunctions as living in the 2-category \(\textbf{Cat}\), with their data being defined as properties of 1-cells and 2-cells, plus the triangle identities. We can abstract this notion to an arbitrary [[file:20200929150428-bicategories.org][bicategory]].
 * Definitions
 #+BEGIN_definition
 An /internal adjuntion/ \(f \dashv g\) in an bicategory B is a quadruple \(f,g,\eta, \epsilon\) consisting of:
 - 1-cells: \(f:X \rightarrow Y\) and \(g:Y \rightarrow X\);
-- 2-cells: \(eta:1_X \rightarrow gf\) and \(\epsilon:fg \rightarrow 1_Y\).
+- 2-cells: \(\eta:1_X \rightarrow gf\) and \(\epsilon:fg \rightarrow 1_Y\).
 
   These maps are subject to the following two commutative diagrams, that we call the left and right triangle identities:
 

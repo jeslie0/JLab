@@ -10,7 +10,7 @@
 :END:
 
 #+BEGIN_definition
-Let \(P:E \rightarrow B\) be a functor and \(\phi:e' \rightarrow e\) be an arrow in a category \(E\). We say that \(\phi\) is /cartesian with respect to \(P\)/ if for any arrows \(\psi:e'' \rightarrow e\) in \(E\) and \(g:Pe'' \rightarrow Pe'\) in \(B\) such that \(P\phi \circ g = P\psi\), there exists a unique \(\chi : e'' \rightarrow e'\) such that \(\psi = \phi \circ \chi\) and \(P\chi = g\).
+Let \(P:E \rightarrow B\) be a functor and \(\phi:e' \rightarrow e\) be an arrow in \(E\). We say that \(\phi\) is /cartesian with respect to \(P\)/ if for any arrows \(\psi:e'' \rightarrow e\) in \(E\) and \(g:Pe'' \rightarrow Pe'\) in \(B\) such that \(P\phi \circ g = P\psi\), there exists a unique \(\chi : e'' \rightarrow e'\) such that \(\psi = \phi \circ \chi\) and \(P\chi = g\).
 #+END_definition
  
 
@@ -19,7 +19,7 @@ Note that this is a lifting condition. We can summarise this in the following di
 #+BEGIN_SRC latex :fit yes :file ../Images/cartesian-morphism.png :imagemagick yes :iminoptions -density 600 :headers '("\\usepackage{tikz-cd}") :results none :exports (when (eq org-export-current-backend 'html) "none")
     \definecolor{col1}{HTML}{B2B2B2}
     \begin{tikzcd}[color=col1]
-                                                                    & e \arrow[d, "\phi"] &  &                                                  & Pe' \arrow[d, "P \phi"] \\
+                                                                    & e' \arrow[d, "\phi"] &  &                                                  & Pe' \arrow[d, "P \phi"] \\
   e'' \arrow[r, "\forall \psi"'] \arrow[ru, "\exists \chi", dashed] & e                   &  & Pe'' \arrow[ru, "\forall g"] \arrow[r, "P\psi"'] & Pe                     
   \end{tikzcd}
 #+END_SRC
@@ -27,8 +27,21 @@ Note that this is a lifting condition. We can summarise this in the following di
 [[file:../Images/cartesian-morphism.png]]
 
 #+BEGIN_definition
-A functor \(P:E \rightarrow B\) is a (Grothendieck) /fibration/ if for any \(e \in E\) and \(f:b \rightarrow Pe\), there is a cartesian arrow \(\phi:e' \rightarrow e\) with \(P\phi = f\). Such an arrow is called a cartesian lifting of \(f\) to \(e\) and a choice of cartesian lifting for every \(e\) and \(f\) is called a /cleavage/.
+A functor \(P:E \rightarrow B\) is a (Grothendieck) /fibration/ if for any \(e \in E\) and \(f:b \rightarrow Pe \in B\), there is a cartesian arrow \(\phi:e' \rightarrow e\) with \(P\phi = f\). Such an arrow is called a cartesian lifting of \(f\) to \(e\) and a choice of cartesian lifting for every \(e\) and \(f\) is called a /[[file:20201001162813-cleavage.org][cleavage]]/.
 #+END_definition
+
+* Properties
+[[https://pdf.sciencedirectassets.com/271538/1-s2.0-S0304397500X03866/1-s2.0-030439759390169T/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIHmfu2njyoRXkOW3AS3rDYpIc6gc5FqMycyQkElsfZZAAiBWkiRb4k9sI70Kz3XJh1s%2Bm1hFVanyjaFAL0vUALNVbSq9Awjw%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAMaDDA1OTAwMzU0Njg2NSIMdimKT8m0f0K%2BwLszKpEDwfYdqcsbnHJsXWaAdL4J%2BCxEmbnJNiwQAhdcKSEINhewBXp5Ph9vJQir%2Fi4D3Gz7DvoZ5srNdgzOtZ8E7PckbGLaMDeTKdUmT67Oge6LDMmVgjFcG1HzM7JOonQtURpXDLh7zg1eRdtHmJmsLpy26i6Gqqir63VvTuqg%2B08nMXGEwvEGzaXxvIxYVkmH7He6zNIFuDv7aV4lrguUq7AXJZXaYpHyHhdx2wt7qw3l%2FJwzRdu4%2BCOZhHCbllirfJ7N1bzzdNqb2%2FJUv4gaFC2NTg1O4byogxRcX16wkOIvOT9yD1q0LfOj1PWJGgv4%2FEvNRO%2FheP%2FyOJ2PVUq74xvjgwiLD%2BNAjxJ7CdTWyU8cpw1CE3EcYU20umcWgh2GH9aCt1glhKXCx9SPpBT3FM1lUd9syR%2BKK%2Fq%2FJNEr6HSLHkReDXjZXbaAQTmnxe%2BLFs8FXBfrUFEAXCtsp%2FQfxa5kQjl1Jz3QUsViZRKezOAQeqqvd0A7%2FfHVfFHyrPuSKvyQ%2B0XH%2BEv6gI9DUsRzpQd0FZ8w9Pzx%2BwU67AE9RRjIZOoPewCETStNGlbGLvXpqVZ0zeikplkhQCDBVd%2FeWEvJLvm0bk7azBBVQOTuBzy5Qe312Fawv0mYRjlMPwfz%2Fe13pZvKoCm%2Brdxfrj9bspwjzPurNKMusfHvvQ%2B4i3LLrKGpPHbF34M2FOUheTKgXQgQfHTnKk3PAnZ0IOqhZum2B7qtumoz9Lcz7zkH8ibReWmwMror8J9dDe1DW%2Fmuwz9bBt7X%2FTFgFYcdIzVJ2K1O1bMCX56zzmW%2BiATYp2K2v3Zc3QOA0LKwHPh%2BD7EnTkvXaWrg5cXWM4uCuJ%2F%2FxrirZhlNwtwQKQ%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201006T154601Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTY4YNI4JID%2F20201006%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=6caecd9dc3498654d84735b4b323a4488bbc87ccebac7411712176a325f7ec08&hash=304b251add92cf4db406a39b246ec11c309001743c52981a035ee616343d2e5e&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=030439759390169T&tid=spdf-ba61438e-3781-4b02-8f19-965595a17576&sid=20bbf1da51953941e63b7eb3f1c610859cfagxrqa&type=client][source]]
+Given a functor \(p:E \rightarrow B\) and object \(b \in B\), we can form a category \(E_b\) of fibres over \(b\).
+
+#+BEGIN_definition
+Let \(p:E \rightarrow B\) be a functor. For \(b \in B\) the fibre \(E_b\) is the category with the following data:
+- objects: \(e \in E\) such that \(Pe = b\);
+- morphisms: \(f: e \rightarrow e'\) with \(Pf = 1_b\).
+  
+We think of \(E_b\) as having objects above \(b\), with /vertical/ morphisms.
+#+END_definition
+
 
 * Examples
 

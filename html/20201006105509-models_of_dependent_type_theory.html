@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-03 Sat 14:54 -->
+<!-- 2020-10-07 Wed 21:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sitemap</title>
+<title>Models of Dependent Type Theory</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="James Leslie" />
+<meta name="author" content="James leslie" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -193,6 +193,11 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<div style="display: none"> \(
+\newcommand{\Fam}{\operatorname{Fam}}
+\newcommand{\Ty}{\operatorname{Ty}} \newcommand{\Tm}{\operatorname{Tm}}
+\)</div>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -215,23 +220,129 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Sitemap</h1>
-<ul class="org-ul">
-<li><a href="20200929150428-bicategories.html">Bicategories</a></li>
-<li><a href="20201001153515-category_of_elements.html">Category of Elements</a></li>
-<li><a href="20201001162813-cleavage.html">Cleavage</a></li>
-<li><a href="20201002154933-cubical_sets.html">Cubical Sets</a></li>
-<li><a href="20201001140349-grothendieck_fibrations.html">Grothendieck Fibrations</a></li>
-<li><a href="20201003143211-internal_adjunctions_in_a_bicategory.html">Internal Adjunctions in a Bicategory</a></li>
-<li><a href="20200929203737-monoidal_categories.html">Monoidal Categories</a></li>
+<h1 class="title">Models of Dependent Type Theory</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org8587dd3">1. Idea</a></li>
+<li><a href="#orgd32e31a">2. Contextual Categories</a></li>
+<li><a href="#org385ee8c">3. Categories with Attributes</a></li>
+<li><a href="#orgc1f8604">4. <span class="todo TODO">TODO</span> Categories with Families</a></li>
+<li><a href="#orgfdaf388">5. Comprehension Categories</a></li>
 </ul>
 </div>
+</div>
+
+<div id="outline-container-org8587dd3" class="outline-2">
+<h2 id="org8587dd3"><span class="section-number-2">1</span> Idea</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Needs to be updated. Idea is to form a category from the contexts and terms of the type theory. Several different but related ways to do this.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd32e31a" class="outline-2">
+<h2 id="orgd32e31a"><span class="section-number-2">2</span> Contextual Categories</h2>
+</div>
+<div id="outline-container-org385ee8c" class="outline-2">
+<h2 id="org385ee8c"><span class="section-number-2">3</span> Categories with Attributes</h2>
+</div>
+<div id="outline-container-orgc1f8604" class="outline-2">
+<h2 id="orgc1f8604"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> Categories with Families</h2>
+<div class="outline-text-2" id="text-4">
+<div class="definition" id="org800ac0f">
+<p>
+The category \(\Fam\) of families of sets is defined by the following data:
+</p>
+<ul class="org-ul">
+<li>objects: pairs \((B^0, B^1)\) where \(B^0\) is a set and \((B^1_b)_{b \in B^0}\) is a family of sets, indexed by \(B^0\);</li>
+<li>morphisms: \(f : (B^0, B^1) \rightarrow (C^0, C^1)\) is a pair \((f^0, f^1)\), where \(f^0:B^0 \rightarrow C^0\) is a function \(f^1 = (f^1_b)_{b \in B^0}\) is a family of functions \(f^1_b : B^1(b) \rightarrow C^1(f^0(b))\).</li>
+<li>Equivalently, \(\Fam\) is the category \(\textbf{Set}^\rightarrow\).</li>
+</ul>
+
+</div>
+
+<div class="definition" id="org18ce744">
+<p>
+A <i>category with families</i> (CwF) is given by the following data:
+</p>
+<ul class="org-ul">
+<li>a category \(\mathcal C\) with a terminal object;</li>
+<li>a functor \(\mathcal F = (\Ty, \Tm):\mathcal C ^ \text{op} \rightarrow \Fam\);</li>
+<li>a comprehension operation, which given an object \(\Gamma \in \mathcal \C\) and \(A \in \Ty(\Gamma)\) assigns an object \(\Gamma.A\) and two projections \(p_{\Gamma.A} : \Gamma. A \rightarrow \Gamma\) and \(q_{\Gamma.A} \in \Tm(\Gamma.A, A[p_{\Gamma.A}])\) satisfying the following universal property: for all \(\gamma : \Delta \rightarrow \Gamma\) and \(a \in \Tm(\Delta, A[ \gamma ])\), there is a unique \(\langle \gamma, a \rangle : \Delta \rightarrow \Gamma .\A\) such that \(p_{\Gamma.A} \circ \langle \gamma, a \rangle = \gamma\) and \(q_{\Gamma.A}[\langle \gamma, a \rangle] = a.\)</li>
+</ul>
+
+</div>
+
+<p>
+As each \(\mathcal F (\Gamma)\) is a pair, we are justified in splitting it up into its components.
+</p>
+
+<div class="definition" id="orga10e38a">
+<p>
+A category with families is contextual if there is length function \(l : \text{Ob}(\mathcal C) \rightarrow \mathbb N\) such that \(l(\Gamma) = 0\) if and only if \(\Gamma = 1\), the terminal object, and \(l(\Gamma) = n+1\) if there are unique \(\Delta \in \mathcal C\) and \(A \in \Ty(\Delta)\) such that \(\Gamma = \Delta.A\) and \(l(\Delta) = n\).
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfdaf388" class="outline-2">
+<h2 id="orgfdaf388"><span class="section-number-2">5</span> Comprehension Categories</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+<a href="https://pdf.sciencedirectassets.com/271538/1-s2.0-S0304397500X03866/1-s2.0-030439759390169T/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIHmfu2njyoRXkOW3AS3rDYpIc6gc5FqMycyQkElsfZZAAiBWkiRb4k9sI70Kz3XJh1s%2Bm1hFVanyjaFAL0vUALNVbSq9Awjw%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAMaDDA1OTAwMzU0Njg2NSIMdimKT8m0f0K%2BwLszKpEDwfYdqcsbnHJsXWaAdL4J%2BCxEmbnJNiwQAhdcKSEINhewBXp5Ph9vJQir%2Fi4D3Gz7DvoZ5srNdgzOtZ8E7PckbGLaMDeTKdUmT67Oge6LDMmVgjFcG1HzM7JOonQtURpXDLh7zg1eRdtHmJmsLpy26i6Gqqir63VvTuqg%2B08nMXGEwvEGzaXxvIxYVkmH7He6zNIFuDv7aV4lrguUq7AXJZXaYpHyHhdx2wt7qw3l%2FJwzRdu4%2BCOZhHCbllirfJ7N1bzzdNqb2%2FJUv4gaFC2NTg1O4byogxRcX16wkOIvOT9yD1q0LfOj1PWJGgv4%2FEvNRO%2FheP%2FyOJ2PVUq74xvjgwiLD%2BNAjxJ7CdTWyU8cpw1CE3EcYU20umcWgh2GH9aCt1glhKXCx9SPpBT3FM1lUd9syR%2BKK%2Fq%2FJNEr6HSLHkReDXjZXbaAQTmnxe%2BLFs8FXBfrUFEAXCtsp%2FQfxa5kQjl1Jz3QUsViZRKezOAQeqqvd0A7%2FfHVfFHyrPuSKvyQ%2B0XH%2BEv6gI9DUsRzpQd0FZ8w9Pzx%2BwU67AE9RRjIZOoPewCETStNGlbGLvXpqVZ0zeikplkhQCDBVd%2FeWEvJLvm0bk7azBBVQOTuBzy5Qe312Fawv0mYRjlMPwfz%2Fe13pZvKoCm%2Brdxfrj9bspwjzPurNKMusfHvvQ%2B4i3LLrKGpPHbF34M2FOUheTKgXQgQfHTnKk3PAnZ0IOqhZum2B7qtumoz9Lcz7zkH8ibReWmwMror8J9dDe1DW%2Fmuwz9bBt7X%2FTFgFYcdIzVJ2K1O1bMCX56zzmW%2BiATYp2K2v3Zc3QOA0LKwHPh%2BD7EnTkvXaWrg5cXWM4uCuJ%2F%2FxrirZhlNwtwQKQ%3D%3D&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20201006T154601Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=300&amp;X-Amz-Credential=ASIAQ3PHCVTY4YNI4JID%2F20201006%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=6caecd9dc3498654d84735b4b323a4488bbc87ccebac7411712176a325f7ec08&amp;hash=304b251add92cf4db406a39b246ec11c309001743c52981a035ee616343d2e5e&amp;host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&amp;pii=030439759390169T&amp;tid=spdf-ba61438e-3781-4b02-8f19-965595a17576&amp;sid=20bbf1da51953941e63b7eb3f1c610859cfagxrqa&amp;type=client">source</a>
+</p>
+<div class="definition" id="orgb24281d">
+<p>
+A <i>comprehension category</i> is a functor \(P:E \rightarrow B^\rightarrow\) satisfying:
+</p>
+<ol class="org-ol">
+<li>\(\text{cod} \circ P : R \rightarrow B\) is a Grothendieck fibration.</li>
+<li>\(f\) is cartesian in \(E\) implies that \(Pf\) is a pullback in \(B\).</li>
+</ol>
+
+<p>
+We say that \(P\) is a full comprehension category when \(P\) is a fully faithful functor. It is cloven or split whenever the Grothendieck fibration is cloven or split.
+</p>
+
+</div>
+
+<p>
+We now show how to construct a comprehension category from a dependent type theory \(\mathcal T\). Define the category \(B\) to have as contexts as objects and context morphisms as morphisms. The category \(E\) has as objects equivalence classes of judgements \([\Gamma \vdash A : \text{Type}]\) with morphisms \([\Gamma \vdash A : \text{Type}] \rightarrow [\Delta \vdash B : \text{Type}]\) being pairs \((f: \Gamma \rightarrow \Delta) \in B, \Gamma, x : A \vdash b : B(f)\). The functor \(P\) takes an object \(\Gamma \vdash A : \text{Type}\) to the projection morphism \(p_A: \Gamma.A \rightarrow \Gamma\).
+</p>
+</div>
+</div>
+</div>
 <div id="postamble" class="status">
-<p class="author">Author: James Leslie</p>
-<p class="date">Created: 2020-10-03 Sat 14:54</p>
+<p class="author">Author: James leslie</p>
+<p class="date">Created: 2020-10-07 Wed 21:25</p>
 </div>
 </body>
 </html>
