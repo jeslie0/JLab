@@ -1,0 +1,43 @@
+#+title: Limits and colimits
+#+author: James Leslie
+#+options: h:2 num:t tex:t
+#+STARTUP: latexpreview inlineimages hideblocks
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+This file will contain information about different adjectives that often appear infront of the word "limit" in category theory
+* Inverse limits
+#+BEGIN_definition
+Let \(\omega\) be the natural numbers, regarded as a poset category. The limit of a diagram \(D : \omega^{\text{op}} \to \mathcal C\) is known as an /inverse limit/.
+
+A cone over this diagram is a diagram of shape \((\omega + 1)^\text{op}\):
+#+BEGIN_SRC latex :fit yes :file ../Images/inverse-limit-cone.png :imagemagick yes :iminoptions -density 600  :headers '("\\usepackage{tikz-cd}") :results none
+  \definecolor{col1}{HTML}{B2B2B2}
+  \begin{tikzcd}[color=col1]
+c \arrow[d] \arrow[rd, "\lambda_3"'] \arrow[rrd, "\lambda_2"'] \arrow[rrrd, "\lambda_1"] \arrow[rrrrd, "\lambda_0"] &               &               &               &     \\
+\ldots \arrow[r]                                                                                                                                                  & D_3 \arrow[r] & D_2 \arrow[r] & D_1 \arrow[r] & D_0
+  \end{tikzcd}
+  #+END_SRC
+#+attr_html: :width 600px
+[[file:../Images/inverse-limit-cone.png]]
+
+#+END_definition
+* Sequential colimits
+#+BEGIN_definition
+The colimit of a diagram \(D:\omega \rightarrow \mathcal C\) is called a sequential colimit, or sometimes a direct limit
+#+END_definition
+* Filtered colimits
+#+BEGIN_definition
+Let \(\kappa\) be an ordinal. A category \(J\) is /\(\kappa\)-filtered/ if there is a cone under every diagram \(D:I \to J\), where the cardinality of \(I\) is \(\kappa\).
+#+END_definition
+
+#+BEGIN_definition
+A /\(\kappa\)-filtered/ colimit the colimit of a diagram \(D: J \to \mathcal C\), where \(J\) is \(\kappa\)-filtered.
+#+END_definition
+
+#+BEGIN_theorem
+\(\aleph_0\)-filtered colimits commute with finite limits in \(\textbf{Set}\).
+#+END_theorem
+
+
+
+
+

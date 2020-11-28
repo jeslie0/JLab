@@ -22,6 +22,7 @@ body {
     color: #B2B2B2;
     background-color: #292B2E;
     font-family: 'Source Sans Pro', Helvetica;
+    counter-reset: theorem;
  }
 a {
     color: #2AA1AD;
@@ -39,7 +40,7 @@ a {
 
 .theorem:before {
 
-    content: "Theorem.";
+    content: "Theorem " counter(theorem) ". ";
 
     font-weight: bold;
 
@@ -59,7 +60,7 @@ a {
 
 .lemma:before {
 
-    content: "Lemma.";
+    content: "Lemma " counter(theorem) ". ";
 
     font-weight: bold;
 
@@ -80,7 +81,7 @@ a {
 
 .definition:before {
 
-    content: "Definition.";
+    content: "Definition " counter(theorem) ". ";
 
     font-weight: bold;
 
@@ -116,7 +117,7 @@ a {
 
 .proposition:before {
 
-    content: "Proposition.";
+    content: "Proposition " counter(theorem) ". ";
 
     font-weight: bold;
 

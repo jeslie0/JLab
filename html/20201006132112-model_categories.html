@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-07 Wed 21:16 -->
+<!-- 2020-11-28 Sat 15:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Model Categories</title>
@@ -194,9 +194,6 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-<div style="display: none"> \(
-\newcommand{\colim}{\operatorname{colim}} \newcommand{\Fib}{\operatorname{Fib}} \newcommand{\Cof}{\operatorname{Cof}}
-\)</div>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -249,35 +246,38 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org950e61a">1. Definitions</a>
+<li><a href="#orgb59f3a6">1. Definitions</a>
 <ul>
-<li><a href="#orgbe85efc">1.1. Retracts</a></li>
-<li><a href="#org6b735e3">1.2. Right/Left lifting properties</a></li>
-<li><a href="#org9cc3890">1.3. Stability</a></li>
-<li><a href="#orgf70824e">1.4. Weak factorisation systems</a></li>
-<li><a href="#orgab82f41">1.5. Model Categories</a></li>
+<li><a href="#org8835cc2">1.1. Retracts</a></li>
+<li><a href="#org176766a">1.2. Right/Left lifting properties</a></li>
+<li><a href="#orgbf0dac6">1.3. Stability</a></li>
+<li><a href="#org5fec3c2">1.4. Weak factorisation systems</a></li>
+<li><a href="#orgad8056e">1.5. Model Categories</a></li>
 </ul>
 </li>
-<li><a href="#org8bdac96">2. <span class="todo TODO">TODO</span> Ken Brown's Lemma</a></li>
-<li><a href="#orgd360dce">3. <span class="todo TODO">TODO</span> Properties</a></li>
+<li><a href="#orgae7be4e">2. <span class="todo TODO">TODO</span> Ken Brown's Lemma</a></li>
+<li><a href="#orgbd153d4">3. <span class="todo TODO">TODO</span> Properties</a></li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org950e61a" class="outline-2">
-<h2 id="org950e61a"><span class="section-number-2">1</span> Definitions</h2>
+<div class="org-src-container">
+<pre class="src src-latex-macros">\newcommand{\colim}{\operatorname{colim}} \newcommand{\Fib}{\operatorname{Fib}} \newcommand{\Cof}{\operatorname{Cof}}
+</pre>
+</div>
+<div id="outline-container-orgb59f3a6" class="outline-2">
+<h2 id="orgb59f3a6"><span class="section-number-2">1</span> Definitions</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgbe85efc" class="outline-3">
-<h3 id="orgbe85efc"><span class="section-number-3">1.1</span> Retracts</h3>
+<div id="outline-container-org8835cc2" class="outline-3">
+<h3 id="org8835cc2"><span class="section-number-3">1.1</span> Retracts</h3>
 <div class="outline-text-3" id="text-1-1">
-<div class="definition" id="org42c85da">
+<div class="definition" id="orgc174cfb">
 <p>
 Suppose \(\mathcal C\) is a category. A map \(f\) is a <i>retract</i> of a map \(g\) if \(f\) is a retract of \(g\) in \(\mathcal C ^\rightarrow\). That is, there is a commuting diagram of the following form:
 </p>
 
 
-<div id="org01bee9c" class="figure">
+<div id="org336b1a1" class="figure">
 <p><img src="../Images/retract-diagram.png" alt="retract-diagram.png" width="400px" />
 </p>
 </div>
@@ -290,16 +290,16 @@ where the horizontal composites are identities.
 </div>
 </div>
 
-<div id="outline-container-org6b735e3" class="outline-3">
-<h3 id="org6b735e3"><span class="section-number-3">1.2</span> Right/Left lifting properties</h3>
+<div id="outline-container-org176766a" class="outline-3">
+<h3 id="org176766a"><span class="section-number-3">1.2</span> Right/Left lifting properties</h3>
 <div class="outline-text-3" id="text-1-2">
-<div class="definition" id="org25f3948">
+<div class="definition" id="orgba9f9d8">
 <p>
 Let \(i : A \rightarrow B\) and \(p : X \rightarrow Y\) be two morphisms in a category \(\mathcal C\). We say that \(i\) has the <i>left lifting property</i> with respect to \(p\) or that \(p\) has the right lifting property with respect to \(i\) if any commuting square of the following form has a diagonal filler:
 </p>
 
 
-<div id="orgbd71e05" class="figure">
+<div id="org914807b" class="figure">
 <p><img src="../Images/leftrightliftingproperty.png" alt="leftrightliftingproperty.png" width="300px" />
 </p>
 </div>
@@ -311,14 +311,14 @@ We extend the above notion and say that a morphism \(p\) has the right (left) li
 </p>
 </div>
 </div>
-<div id="outline-container-org9cc3890" class="outline-3">
-<h3 id="org9cc3890"><span class="section-number-3">1.3</span> Stability</h3>
+<div id="outline-container-orgbf0dac6" class="outline-3">
+<h3 id="orgbf0dac6"><span class="section-number-3">1.3</span> Stability</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 We say that a class of morphisms \(\mathcal F\) is stable under pushouts (retracts) if the pushout (any retract) of \(f \in \mathcal F\) is also in \(\mathcal F\).
 </p>
 
-<div class="definition" id="orge8fd5e7">
+<div class="definition" id="orgeb62c37">
 <p>
 Let \(I\) be a well ordered set with initial element 0, viewed as a category. Let \(\mathcal F\) be a class of morphisms in a category \(\mathcal C\). Let \(X: I \rightarrow \mathcal C\) be a functor with the following properties: for all \(i \neq 0 \in I\), the colimit \(\colim_{j < i} X(j)\) is representable and the induced map
 \[\colim_{j < i} X(j) \rightarrow X(i)\]
@@ -327,7 +327,7 @@ belongs to \(\mathcal F\). If the \(\colim_{i \in I} X(i)\) exists and the map \
 
 </div>
 
-<div class="definition" id="orgbb4596b">
+<div class="definition" id="org97d6724">
 <p>
 We say a class \(\mathcal F\) is <i>saturated</i> if it is stable under retracts, pushouts and transfinite compositions.
 </p>
@@ -335,10 +335,10 @@ We say a class \(\mathcal F\) is <i>saturated</i> if it is stable under retracts
 </div>
 </div>
 </div>
-<div id="outline-container-orgf70824e" class="outline-3">
-<h3 id="orgf70824e"><span class="section-number-3">1.4</span> Weak factorisation systems</h3>
+<div id="outline-container-org5fec3c2" class="outline-3">
+<h3 id="org5fec3c2"><span class="section-number-3">1.4</span> Weak factorisation systems</h3>
 <div class="outline-text-3" id="text-1-4">
-<div class="definition" id="org1078694">
+<div class="definition" id="org77eb393">
 <p>
 A <i>weak factorisation system</i> in a category \(\mathcal C\) is a couple \((A,B)\) of classes of morphisms satisfying the following properties:
 </p>
@@ -354,7 +354,7 @@ A <i>weak factorisation system</i> in a category \(\mathcal C\) is a couple \((A
 We can form weak factorisation systems from the small object argument.
 </p>
 
-<div class="proposition" id="org3d72728">
+<div class="proposition" id="org2e6bbd6">
 <p>
 Let \(\mathcal C\) be a locally small category with small colimits and a small set of morphisms \(I\). Assume there exists a cardinal \(\kappa\) such that for any element \(i:K \rightarrow L\) of \(I\), the functor
 \[\mathcal C(K,-): \mathcal C \rightarrow \textbf{Set}\]
@@ -363,7 +363,7 @@ commutes with colimits indexed by \(\kappa\)-filtered well ordered sets. Then \(
 
 </div>
 
-<div class="corollary" id="org9d09adc">
+<div class="corollary" id="org070fe87">
 <p>
 Let \(\mathbb A\) be a small category and \(I\) a small set of morphisms of presheaves over \(\mathbb A\). Then the couple \((l(r(I)), r(I))\) is a weak factorisation system in \(\widehat{\mathbb A}\).
 </p>
@@ -372,10 +372,10 @@ Let \(\mathbb A\) be a small category and \(I\) a small set of morphisms of pres
 </div>
 </div>
 
-<div id="outline-container-orgab82f41" class="outline-3">
-<h3 id="orgab82f41"><span class="section-number-3">1.5</span> Model Categories</h3>
+<div id="outline-container-orgad8056e" class="outline-3">
+<h3 id="orgad8056e"><span class="section-number-3">1.5</span> Model Categories</h3>
 <div class="outline-text-3" id="text-1-5">
-<div class="definition" id="orge7cafa9">
+<div class="definition" id="org17e4f2f">
 <p>
 A <i>model category</i> is a locally small category \(\mathcal C\) endowed with three classes of morphisms: weak equivalences \(W\), fibrations \(\Fib\) and cofibrations \(\Cof\), such that the following hold:
 </p>
@@ -390,14 +390,14 @@ A <i>model category</i> is a locally small category \(\mathcal C\) endowed with 
 </div>
 </div>
 
-<div id="outline-container-org8bdac96" class="outline-2">
-<h2 id="org8bdac96"><span class="section-number-2">2</span> <span class="todo TODO">TODO</span> Ken Brown's Lemma</h2>
+<div id="outline-container-orgae7be4e" class="outline-2">
+<h2 id="orgae7be4e"><span class="section-number-2">2</span> <span class="todo TODO">TODO</span> Ken Brown's Lemma</h2>
 </div>
 
-<div id="outline-container-orgd360dce" class="outline-2">
-<h2 id="orgd360dce"><span class="section-number-2">3</span> <span class="todo TODO">TODO</span> Properties</h2>
+<div id="outline-container-orgbd153d4" class="outline-2">
+<h2 id="orgbd153d4"><span class="section-number-2">3</span> <span class="todo TODO">TODO</span> Properties</h2>
 <div class="outline-text-2" id="text-3">
-<div class="proposition" id="org1d572ac">
+<div class="proposition" id="org7087ecf">
 <p>
 Let \(\mathcal C\) be a category together with two classes of morphisms \(\mathcal F, \mathcal F '\). Then the following holds:
 </p>
@@ -412,7 +412,8 @@ Let \(\mathcal C\) be a category together with two classes of morphisms \(\mathc
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: James leslie</p>
-<p class="date">Created: 2020-10-07 Wed 21:16</p>
+<p class="date">Created: 2020-11-28 Sat 15:33</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-07 Wed 21:25 -->
+<!-- 2020-11-28 Sat 15:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Models of Dependent Type Theory</title>
@@ -194,10 +194,6 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-<div style="display: none"> \(
-\newcommand{\Fam}{\operatorname{Fam}}
-\newcommand{\Ty}{\operatorname{Ty}} \newcommand{\Tm}{\operatorname{Tm}}
-\)</div>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -250,33 +246,195 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8587dd3">1. Idea</a></li>
-<li><a href="#orgd32e31a">2. Contextual Categories</a></li>
-<li><a href="#org385ee8c">3. Categories with Attributes</a></li>
-<li><a href="#orgc1f8604">4. <span class="todo TODO">TODO</span> Categories with Families</a></li>
-<li><a href="#orgfdaf388">5. Comprehension Categories</a></li>
+<li><a href="#org343f945">1. Idea</a></li>
+<li><a href="#org3a5002e">2. Contextual Categories</a></li>
+<li><a href="#org0aa0e65">3. Categories with attributes</a>
+<ul>
+<li><a href="#orgfcb12b9">3.1. <span class="todo TODO">TODO</span> More explicit description</a></li>
+<li><a href="#orgcd1b17b">3.2. <span class="todo TODO">TODO</span> From comprehension categories 1</a></li>
+<li><a href="#org221a3da">3.3. <span class="todo TODO">TODO</span> From comprehension categories 2</a></li>
+<li><a href="#org6547492">3.4. Showing the definitions are equivalent</a></li>
+</ul>
+</li>
+<li><a href="#org37aedee">4. Categories with Families</a></li>
+<li><a href="#org07d3872">5. Comprehension Categories</a></li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org8587dd3" class="outline-2">
-<h2 id="org8587dd3"><span class="section-number-2">1</span> Idea</h2>
+<div class="org-src-container">
+<pre class="src src-latex-macros">  \newcommand{\Fam}{\operatorname{Fam}}
+\newcommand{\Ty}{\operatorname{Ty}} \newcommand{\Tm}{\operatorname{Tm}}
+\newcommand{\ft}{\operatorname{ft}}\newcommand{\Ob}{\operatorname{Ob}}
+</pre>
+</div>
+<div id="outline-container-org343f945" class="outline-2">
+<h2 id="org343f945"><span class="section-number-2">1</span> Idea</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Needs to be updated. Idea is to form a category from the contexts and terms of the type theory. Several different but related ways to do this.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd32e31a" class="outline-2">
-<h2 id="orgd32e31a"><span class="section-number-2">2</span> Contextual Categories</h2>
+<div id="outline-container-org3a5002e" class="outline-2">
+<h2 id="org3a5002e"><span class="section-number-2">2</span> Contextual Categories</h2>
+<div class="outline-text-2" id="text-2">
+<div class="definition" id="org3315845">
+<p>
+A contextual category \(\mathbb C\) consists of the following the following data:
+</p>
+<ol class="org-ol">
+<li>a category \(\mathbb C\);</li>
+<li>a grading on objects</li>
+<li>an object \(1 \in \mathbb C\);</li>
+<li><i>father</i> operations \(\ft_n : \Ob_{n+1} \mathbb C \to \Ob_n \mathbb C\);</li>
+<li>for each \(\Gamma \in \Ob_{n+1} \mathbb C\), a map \(p_\Gamma : \Gamma \to ft \Gamma\), called the canonical projection from \(\Gamma\);</li>
+<li>for each \(\Gamma \in \Ob_{n+1} \mathbb C\) and \(f : \Delta \to \ft \Gamma\), an object \(f^*\Gamma\) together with a <i>connecting map</i> \(f.\Gamma : f^*\Gamma \to \Gamma\);</li>
+</ol>
+
+<p>
+such that
+</p>
+
+<ol class="org-ol">
+<li>1 is the unique object in \(\Ob_0 \mathbb C\);</li>
+<li>1 is a terminal object in \(\mathbb C\);</li>
+<li>for each \(\Gamma \in \Ob_{n+1} \mathbb C\), and \(f : \Delta \to \ft \Gamma\), we have \(\ft(f^*\Gamma) = \Delta\), and the following square is a pullback:</li>
+</ol>
+
+<div id="org9c6060c" class="figure">
+<p><img src="../Images/ctxCatPBsquare.png" alt="ctxCatPBsquare.png" width="300px" />
+</p>
 </div>
-<div id="outline-container-org385ee8c" class="outline-2">
-<h2 id="org385ee8c"><span class="section-number-2">3</span> Categories with Attributes</h2>
+<ol class="org-ol">
+<li>canonical projections are strictly functorial: \(\id_{\ft \Gamma}^* \Gamma = \Gamma\), \(\id_{\ft \Gamma} \Gamma = \id_\Gamma\); and for \(f : \Delta \to \ft \Gamma\) and \(g : \Theta \to Delta\), we have \((fg)^* \Gamma = g^*f^*\Gamma\) and \(fg.\Gamma = f.\Gamma \circ g.f^* \Gamma\).</li>
+</ol>
+
 </div>
-<div id="outline-container-orgc1f8604" class="outline-2">
-<h2 id="orgc1f8604"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> Categories with Families</h2>
+</div>
+</div>
+
+<div id="outline-container-org0aa0e65" class="outline-2">
+<h2 id="org0aa0e65"><span class="section-number-2">3</span> Categories with attributes</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+There are several equivalent definitions of a category with attributes (CwA). We present them here and show they are equivalent.
+</p>
+</div>
+<div id="outline-container-orgfcb12b9" class="outline-3">
+<h3 id="orgfcb12b9"><span class="section-number-3">3.1</span> <span class="todo TODO">TODO</span> More explicit description</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="definition" id="org8a1a22d">
+<p>
+A <i>category with attributes</i> consists of the following data:
+</p>
+<ol class="org-ol">
+<li>A category \(\mathbb C\), with a chosen terminal object 1;</li>
+<li>A functor \(\Ty:\mathbb C^\op \to \Set\);</li>
+<li>An assignment to each \(A \in \Ty(\Gamma\), an object \(\Gamma.A \in \mathbb C\) and a map \(p_A : \Gamma.A \to \Gamma\);</li>
+<li>for each \(A \in \Ty(\Gamma)\) and \(f : \Delta \to \Gamma\), a map \(f.A : \Delta.f^*A \to \Gamma.A\) (called the <i>connecting map</i>) such that the following square is a pullback:</li>
+</ol>
+
+<div id="orgb792dfc" class="figure">
+<p><img src="../Images/CwA-pullback-square.png" alt="CwA-pullback-square.png" width="300px" />
+</p>
+</div>
+
+</div>
+</div>
+</div>
+<div id="outline-container-orgcd1b17b" class="outline-3">
+<h3 id="orgcd1b17b"><span class="section-number-3">3.2</span> <span class="todo TODO">TODO</span> From comprehension categories 1</h3>
+<div class="outline-text-3" id="text-3-2">
+<div class="definition" id="org48a57c5">
+<p>
+A category with attributes is a full, split comprehension category.
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org221a3da" class="outline-3">
+<h3 id="org221a3da"><span class="section-number-3">3.3</span> <span class="todo TODO">TODO</span> From comprehension categories 2</h3>
+<div class="outline-text-3" id="text-3-3">
+<div class="definition" id="org7bd6dd2">
+<p>
+A category with attributes is a comprehension category where the Grothendieck fibration is discrete.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6547492" class="outline-3">
+<h3 id="org6547492"><span class="section-number-3">3.4</span> Showing the definitions are equivalent</h3>
+<div class="outline-text-3" id="text-3-4">
+</div>
+<ol class="org-ol">
+<li><a id="orgab1c05b"></a><span class="todo TODO">TODO</span> Comprehension 1 to Comprehension 2<br />
+<div class="outline-text-4" id="text-3-4-1">
+<p>
+(check that presheaf is well defined, check that horizontal map sends cartesian maps to pullback squares)
+</p>
+<div class="lemma" id="org36b13d6">
+<p>
+Let \((C, T)\) be a full, split comprehension category. Then we can form a comprehension category \((C, T')\) where the fibration is discrete.
+</p>
+
+</div>
+<div class="proof" id="orga93a3ce">
+<p>
+Let \(F:T \to C\) be the split Grothendieck fibration from the comprehension category \(C\). Define \(\fib_F(c)\) to be the category with:
+</p>
+<ul class="org-ul">
+<li>objects are \(t \in T\) such that \(Ft = c\);</li>
+<li>morphisms are maps \(f: t \to t'\) such that \(Ft = Ft' = c\) and \(Ff = 1_c\).</li>
+</ul>
+
+<p>
+From here, we denote the set of objects (ignoring size issues) of \(\fib_F(c)\) as \(\norm{\fib_F(c)}\).This naturally defines a presheaf \(\norm{\fib_F(-)} : C^{\op} \to \Set\) which takes a map \(f : c \to c'\) in \(C\) to the a function \(\norm{\fib_F(f)} : \norm{\fib_F(c')} \to \norm{\fib_F(c)}\), defined by sending \(e \in \norm{\fib_F(c')}\) to the domain of the cartesian lift that the cleavage gives for the map \(f : c &rarr; F(e)=c'\a). That this is a well defined presheaf requires the cleavage to be split.
+</p>
+
+<p>
+Taking the category of elements of \(\norm{\fib_F(-)}\), which we denote \(\integral_{\norm{F}}\), we have a discrete fibration \(\integral_{\norm{F}} \to C\) sending \((c,t) \to c\). We also have a functor \(\integral_{\norm{F}} \to T\) which sends the pair \((c,t) \to t\), which is faithful. It is then clear that the following triangle commutes:
+</p>
+
+<div id="org2ae9ddd" class="figure">
+<p><img src="../Images/cwa-cate-elements.png" alt="cwa-cate-elements.png" width="300px" />
+</p>
+</div>
+
+<p>
+This then gives us a comprehension category with a discrete fibration. 
+</p>
+
+</div>
+</div>
+</li>
+<li><a id="orga13973f"></a><span class="todo TODO">TODO</span> Comprehension 2 to Comprehension 1<br />
+<div class="outline-text-4" id="text-3-4-2">
+<div class="lemma" id="org6bb45b1">
+<p>
+Given a comprehension category \((C,T)\), where the fibration is discrete, we can extract another comprehension category which is full and split.
+</p>
+
+</div>
+<div class="proof" id="org164180a">
+<p>
+
+</p>
+
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org37aedee" class="outline-2">
+<h2 id="org37aedee"><span class="section-number-2">4</span> Categories with Families</h2>
 <div class="outline-text-2" id="text-4">
-<div class="definition" id="org800ac0f">
+<div class="definition" id="org0471cca">
 <p>
 The category \(\Fam\) of families of sets is defined by the following data:
 </p>
@@ -288,7 +446,7 @@ The category \(\Fam\) of families of sets is defined by the following data:
 
 </div>
 
-<div class="definition" id="org18ce744">
+<div class="definition" id="org95134da">
 <p>
 A <i>category with families</i> (CwF) is given by the following data:
 </p>
@@ -304,7 +462,7 @@ A <i>category with families</i> (CwF) is given by the following data:
 As each \(\mathcal F (\Gamma)\) is a pair, we are justified in splitting it up into its components.
 </p>
 
-<div class="definition" id="orga10e38a">
+<div class="definition" id="org71479fc">
 <p>
 A category with families is contextual if there is length function \(l : \text{Ob}(\mathcal C) \rightarrow \mathbb N\) such that \(l(\Gamma) = 0\) if and only if \(\Gamma = 1\), the terminal object, and \(l(\Gamma) = n+1\) if there are unique \(\Delta \in \mathcal C\) and \(A \in \Ty(\Delta)\) such that \(\Gamma = \Delta.A\) and \(l(\Delta) = n\).
 </p>
@@ -313,13 +471,13 @@ A category with families is contextual if there is length function \(l : \text{O
 </div>
 </div>
 
-<div id="outline-container-orgfdaf388" class="outline-2">
-<h2 id="orgfdaf388"><span class="section-number-2">5</span> Comprehension Categories</h2>
+<div id="outline-container-org07d3872" class="outline-2">
+<h2 id="org07d3872"><span class="section-number-2">5</span> Comprehension Categories</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <a href="https://pdf.sciencedirectassets.com/271538/1-s2.0-S0304397500X03866/1-s2.0-030439759390169T/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIHmfu2njyoRXkOW3AS3rDYpIc6gc5FqMycyQkElsfZZAAiBWkiRb4k9sI70Kz3XJh1s%2Bm1hFVanyjaFAL0vUALNVbSq9Awjw%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAMaDDA1OTAwMzU0Njg2NSIMdimKT8m0f0K%2BwLszKpEDwfYdqcsbnHJsXWaAdL4J%2BCxEmbnJNiwQAhdcKSEINhewBXp5Ph9vJQir%2Fi4D3Gz7DvoZ5srNdgzOtZ8E7PckbGLaMDeTKdUmT67Oge6LDMmVgjFcG1HzM7JOonQtURpXDLh7zg1eRdtHmJmsLpy26i6Gqqir63VvTuqg%2B08nMXGEwvEGzaXxvIxYVkmH7He6zNIFuDv7aV4lrguUq7AXJZXaYpHyHhdx2wt7qw3l%2FJwzRdu4%2BCOZhHCbllirfJ7N1bzzdNqb2%2FJUv4gaFC2NTg1O4byogxRcX16wkOIvOT9yD1q0LfOj1PWJGgv4%2FEvNRO%2FheP%2FyOJ2PVUq74xvjgwiLD%2BNAjxJ7CdTWyU8cpw1CE3EcYU20umcWgh2GH9aCt1glhKXCx9SPpBT3FM1lUd9syR%2BKK%2Fq%2FJNEr6HSLHkReDXjZXbaAQTmnxe%2BLFs8FXBfrUFEAXCtsp%2FQfxa5kQjl1Jz3QUsViZRKezOAQeqqvd0A7%2FfHVfFHyrPuSKvyQ%2B0XH%2BEv6gI9DUsRzpQd0FZ8w9Pzx%2BwU67AE9RRjIZOoPewCETStNGlbGLvXpqVZ0zeikplkhQCDBVd%2FeWEvJLvm0bk7azBBVQOTuBzy5Qe312Fawv0mYRjlMPwfz%2Fe13pZvKoCm%2Brdxfrj9bspwjzPurNKMusfHvvQ%2B4i3LLrKGpPHbF34M2FOUheTKgXQgQfHTnKk3PAnZ0IOqhZum2B7qtumoz9Lcz7zkH8ibReWmwMror8J9dDe1DW%2Fmuwz9bBt7X%2FTFgFYcdIzVJ2K1O1bMCX56zzmW%2BiATYp2K2v3Zc3QOA0LKwHPh%2BD7EnTkvXaWrg5cXWM4uCuJ%2F%2FxrirZhlNwtwQKQ%3D%3D&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20201006T154601Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=300&amp;X-Amz-Credential=ASIAQ3PHCVTY4YNI4JID%2F20201006%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=6caecd9dc3498654d84735b4b323a4488bbc87ccebac7411712176a325f7ec08&amp;hash=304b251add92cf4db406a39b246ec11c309001743c52981a035ee616343d2e5e&amp;host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&amp;pii=030439759390169T&amp;tid=spdf-ba61438e-3781-4b02-8f19-965595a17576&amp;sid=20bbf1da51953941e63b7eb3f1c610859cfagxrqa&amp;type=client">source</a>
 </p>
-<div class="definition" id="orgb24281d">
+<div class="definition" id="org0aaacc2">
 <p>
 A <i>comprehension category</i> is a functor \(P:E \rightarrow B^\rightarrow\) satisfying:
 </p>
@@ -334,15 +492,27 @@ We say that \(P\) is a full comprehension category when \(P\) is a fully faithfu
 
 </div>
 
+<div class="definition" id="orgb13b7fb">
 <p>
-We now show how to construct a comprehension category from a dependent type theory \(\mathcal T\). Define the category \(B\) to have as contexts as objects and context morphisms as morphisms. The category \(E\) has as objects equivalence classes of judgements \([\Gamma \vdash A : \text{Type}]\) with morphisms \([\Gamma \vdash A : \text{Type}] \rightarrow [\Delta \vdash B : \text{Type}]\) being pairs \((f: \Gamma \rightarrow \Delta) \in B, \Gamma, x : A \vdash b : B(f)\). The functor \(P\) takes an object \(\Gamma \vdash A : \text{Type}\) to the projection morphism \(p_A: \Gamma.A \rightarrow \Gamma\).
+A <i>comprehension category</i> consists of a category \(\mathcal C\) together with a (cloven) Grothendieck fibration \(P: \mathcal T \to \mathcal C\) and a functor \(\chi : \mathcal T \to \mathcal C ^\to\) (the comprehension), sending cartesian arrows to pullback squares, and such that \(\cod \circ  \chi = P\). A comprehension category is <i>split</i> if \(P\) is a split fibration and full if \(\chi\) is fully faithful.
+</p>
+
+</div>
+
+<p>
+Note that full split comprehension categories are equivalent to categories with attributes.
+</p>
+
+<p>
+We now show how to construct a comprehension category from a dependent type theory \(\mathcal T\). Define \(\mathcal C_{\mathbb T}\) to be the category of contexts of \(\mathbb T\). Define \(\mathcat T_{\mathbb T}\) to be the category of <i>types in context</i> of \(\mathbb T\). This should be the category of elements of \(\Ty : \mathcal{C}_\mathbb{T}^\op \to \Set\). Let \(P:\mathcal T_{\mathbb T} \to \mathcal C_\mathbb{T}\) be the forgetful functor sending an object \((\Gamma, A)\) to the context \(\Gamma\). The comprehension \(\chi : \mathcal{T}_\mathbb{T} \to \mathcal{C}_{\mathbb T}^\to\) sends a pair \((\Gamma, A)\) to it's dependent projection \(p_A : \Gamma.A \to \Gamma\).
 </p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: James leslie</p>
-<p class="date">Created: 2020-10-07 Wed 21:25</p>
+<p class="date">Created: 2020-11-28 Sat 15:33</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

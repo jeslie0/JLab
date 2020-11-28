@@ -6,9 +6,9 @@
 <!-- 2020-11-28 Sat 15:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Monoidal Categories</title>
+<title>Essentially Algebraic Theories</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="James leslie" />
+<meta name="author" content="James Leslie" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="../CSS/JLab.css"/> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -241,118 +241,132 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">Monoidal Categories</h1>
+<h1 class="title">Essentially Algebraic Theories</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0028c7d">1. Definition</a>
-<ul>
-<li><a href="#org5766e3b">1.1. Unit axioms</a></li>
-<li><a href="#org761468e">1.2. Pentagon Axiom</a></li>
-</ul>
-</li>
-<li><a href="#org486ba27">2. Examples</a>
-<ul>
-<li><a href="#org538bde5">2.1. Bicategories</a></li>
-</ul>
-</li>
-<li><a href="#org9fa9bb2">3. References</a></li>
+<li><a href="#orgfc224b1">1. Definition</a></li>
+<li><a href="#org0219716">2. References</a></li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org0028c7d" class="outline-2">
-<h2 id="org0028c7d"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-orgfc224b1" class="outline-2">
+<h2 id="orgfc224b1"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-This is taken from Definition 1.2.1 in <a href="https://arxiv.org/abs/2002.06055">2-Dimensional Categories</a>.
+There are two ways to think about an essentially algebraic theory. The first is a more concrete description, which is a generalisation of signatures from model theory or universal algebra. The second is a more categorical view point. The difference is similar in flavour to the difference between universal algebra and Lawvere theories. We will look at both definitions.
 </p>
-<div class="definition" id="orgc1b9f04">
+
+<div class="definition" id="org0442706">
 <p>
-A <i>monoidal category</i> is a tuple \((C, \otimes, I, \alpha, \lambda, \rho)\) consisting of:
+Let \(S\) be a set of sorts (types). An <i>\(S\)-sorted signature of algebras</i> is a set \(\Sigma\) of operation symbols, together with an arity function, assigning to each operation symbol \(\sigma \in \Sigma\) a finite word \((s_1, s_2, \ldots, s_n)\) in the alphabet \(S\), and an element \(s \in S\).
+</p>
+
+<p>
+We will write \(\sigma : s_1 \times s_2 \times \ldots \times s_n \to s\), or \(\sigma : \prod_{i=1}^n s_i \to s\).
+</p>
+
+</div>
+
+<p>
+For classical model theory, we only every deal with \(S\) having one element. This means the operations are all \(n\)-ary operations on a single object.
+</p>
+
+<div class="definition" id="org37bae4d">
+<p>
+An <i>essentially algebraic theory</i> is a quadruple
+\[\Gamma = (\Sigma, E, \Sigma_t, \text{Def}),\]
+where:
 </p>
 <ul class="org-ul">
-<li>a category \(C\);</li>
-<li>a functor \(\otimes : C \times C \rightarrow C\) called the <i>monoidal product</i>;</li>
-<li>an object \(I \in C\) called the <i>monoidal unit</i>;</li>
-<li>a natural isomorphism
-\[\alpha_{X,Y,Z}:(X \otimes Y) \otimes Z \rightarrow X \otimes (Y \otimes Z)\]
-for all objects \(X, Y, Z \in C\) called the <i>associativity isomorphism</i>;</li>
-<li>natural isomorphisms
-\[\lambda_X : I \otimes X  \xrightarrow{\sim} X\]
-\[\rho_X : X \otimes I \xrightarrow{\sim} X\]</li>
+<li>\(\Sigma\) is a many-sorted signature, consisting only of operation symbols;</li>
+<li>\(E\) is a set of \(\Sigma\)-equations;</li>
+<li>\(\Sigma_t \subset \Sigma\) is a set of operation symbols called "total";</li>
+<li>\(\text{Def}\) is a (dependent) function which assign to each non-total operation \(\sigma : \prod_{i=1}^n s_i \to s\) in \(\Sigma \backslash \Sigma_t\), a set of \(\Sigma_t\)-equations involving only variables \(x_i\) of type \(\text{Var}(s_i)\).</li>
 </ul>
 
 </div>
 
 <p>
-The above data must satisfy the following axioms:
+We can then define a (set-theoretic) model, \(M\), of an essentially algebraic theory \(\Gamma\) to be:
 </p>
-</div>
-<div id="outline-container-org5766e3b" class="outline-3">
-<h3 id="org5766e3b"><span class="section-number-3">1.1</span> Unit axioms</h3>
-<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>An assignment of each sort \(s \in S\) to a set \(M(s)\);</li>
+<li>An assignment of each operation symbol \(\sigma : \prod_{i = 1}^n s_i \to s\) a <i>partial</i> function
+\[M(\sigma) : \prod_{i=1}^n M(s_i) \to M(s)\]
+such that:
+<ul class="org-ul">
+<li>for each \(\sigma \in \Sigma_t\), \(M(\sigma)\) is a total function;</li>
+<li>for each \(\sigma \in \Sigma \backslash \Sigma_t\) of type \(\prod_{i=1}^n s_i \to s\) and each \(n\)-tuple \[a = (a_i)_{i=1}^n \in \prod_{i=1}^n M(s_i),\]
+\(M(\sigma)(a)\) is defined if and only if all the equations in \(\text{Def}{\sigma}\) are satisfied at the argument \(a\).</li>
+<li>All the equations of \(E\) are satisfied.</li>
+</ul></li>
+</ul>
+
+
+<div class="ex" id="org44c4fe3">
 <p>
-The middle unity diagram
+The theory of categories is an example, if not <i>the</i> example of an essentially algebraic theory. We spell this out now.
 </p>
-
-<div id="org2805f3c" class="figure">
-<p><img src="..//Images/middle-unity.png" alt="middle-unity.png" width="400px" />
-</p>
-</div>
-
-<p>
-is commutative for all \(X,Y \in C\). Moreover, the equality
-\[\lambda_I = \rho_I : I \otimes I \rightarrow I\]
-holds.
-</p>
-</div>
-</div>
-<div id="outline-container-org761468e" class="outline-3">
-<h3 id="org761468e"><span class="section-number-3">1.2</span> Pentagon Axiom</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-The pentagon
-</p>
-
-<div id="orgf1a7fee" class="figure">
-<p><img src="../Images/monoidal-pentegon-diagram.png" alt="monoidal-pentegon-diagram.png" width="600px" />
-</p>
-</div>
-
 
 <p>
-is commutative for all objects \(W, X, Y, Z \in C\).
+We let \(\Sigma\) consist of two sorts, \(\text{ob}\) and \(\text{hom}\), with operation symbols:
 </p>
+<ul class="org-ul">
+<li>\(\text{hom} : \text{ob} \times \text{ob} \to \text{map}\)</li>
+<li>\(s : \text{map} \to \text{ob}\);</li>
+<li>\(t : \text{map} \to \text{ob}\);</li>
+<li>\(\text{id} : \text{ob} \to \text{map}\);</li>
+<li>\(\circ : \text{map} \times \text{map} \to \text{map}\) (we will use infix notation).</li>
+</ul>
+
+<p>
+We have the following equations:
+</p>
+<ul class="org-ul">
+<li>\(s(\text{id}(x)) = t(\text{id}(x)) = x\);</li>
+<li>\(f \circ \text{id}(x) = f\) and \(\text{id}(y) \circ f = f\);</li>
+<li>\((f \circ g) \circ h = f \circ (g \circ h)\);</li>
+<li>\(s(g \circ f) = s(f)\) and \(t(g \circ f) = t(g)\).</li>
+</ul>
+
+<p>
+The following are the total operations:
+</p>
+<ul class="org-ul">
+<li>\(\text{hom}\);</li>
+<li>\(s\);</li>
+<li>\(t\);</li>
+<li>\(\text{id}\);</li>
+</ul>
+
+<p>
+Finally, we have the following set \(\text{Def}(\circ)\) which consists of a single equation, giving the conditions for \(\circ\) to be defined:
+</p>
+<ul class="org-ul">
+<li>Given \((g , f) \in \text{Var}(\text{map})\times\text{Var}(\text{map})\), \(t(f) = s(g)\).</li>
+</ul>
+
+<p>
+A model of this is then exactly a category.
+</p>
+
 </div>
 </div>
 </div>
 
-<div id="outline-container-org486ba27" class="outline-2">
-<h2 id="org486ba27"><span class="section-number-2">2</span> Examples</h2>
+<div id="outline-container-org0219716" class="outline-2">
+<h2 id="org0219716"><span class="section-number-2">2</span> References</h2>
 <div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org538bde5" class="outline-3">
-<h3 id="org538bde5"><span class="section-number-3">2.1</span> Bicategories</h3>
-<div class="outline-text-3" id="text-2-1">
 <p>
-Every monoidal category is an example of a <a href="20200929150428-bicategories.html">bicategory</a> with one object. 
+<a href="https://ncatlab.org/nlab/show/Locally+presentable+and+accessible+categories">Locally presentable and accessible categories</a> - Section 3.D
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org9fa9bb2" class="outline-2">
-<h2 id="org9fa9bb2"><span class="section-number-2">3</span> References</h2>
-<div class="outline-text-2" id="text-3">
-<ul class="org-ul">
-<li>The definition used is from Johnson and Yau's <a href="https://arxiv.org/abs/2002.06055">2-Dimensional Categories</a>.</li>
-</ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: James leslie</p>
+<p class="author">Author: James Leslie</p>
 <p class="date">Created: 2020-11-28 Sat 15:33</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

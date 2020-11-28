@@ -2,17 +2,106 @@
 #+author: James leslie
 #+options: h:2 num:t tex:t
 #+STARTUP: latexpreview inlineimages hideblocks
-#+LATEX_HEADER: \newcommand{\Fam}{\operatorname{Fam}} \newcommand{\Ty}{\operatorname{Ty}} \newcommand{\Tm}{\operatorname{Tm}}
+#+LATEX_HEADER: \usepackage{math-packages} \usepackage{math-macros}
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 #+BEGIN_SRC latex-macros
-  \newcommand{\Fam}{\operatorname{Fam}}
-\newcommand{\Ty}{\operatorname{Ty}} \newcommand{\Tm}{\operatorname{Tm}}
+    \newcommand{\Fam}{\operatorname{Fam}}
+  \newcommand{\Ty}{\operatorname{Ty}} \newcommand{\Tm}{\operatorname{Tm}}
+  \newcommand{\ft}{\operatorname{ft}}\newcommand{\Ob}{\operatorname{Ob}}
 #+END_SRC
 * Idea
 Needs to be updated. Idea is to form a category from the contexts and terms of the type theory. Several different but related ways to do this.
 * Contextual Categories
-* Categories with Attributes
-* TODO Categories with Families
+#+BEGIN_definition
+A contextual category \(\mathbb C\) consists of the following the following data:
+1. a category \(\mathbb C\);
+2. a grading on objects
+3. an object \(1 \in \mathbb C\);
+4. /father/ operations \(\ft_n : \Ob_{n+1} \mathbb C \to \Ob_n \mathbb C\);
+5. for each \(\Gamma \in \Ob_{n+1} \mathbb C\), a map \(p_\Gamma : \Gamma \to ft \Gamma\), called the canonical projection from \(\Gamma\);
+6. for each \(\Gamma \in \Ob_{n+1} \mathbb C\) and \(f : \Delta \to \ft \Gamma\), an object \(f^*\Gamma\) together with a /connecting map/ \(f.\Gamma : f^*\Gamma \to \Gamma\);
+
+such that
+
+1. 1 is the unique object in \(\Ob_0 \mathbb C\);
+2. 1 is a terminal object in \(\mathbb C\);
+3. for each \(\Gamma \in \Ob_{n+1} \mathbb C\), and \(f : \Delta \to \ft \Gamma\), we have \(\ft(f^*\Gamma) = \Delta\), and the following square is a pullback:
+   #+BEGIN_SRC latex :fit yes :file ../Images/ctxCatPBsquare.png :imagemagick yes :iminoptions -density 600  :headers '("\\usepackage{tikz-cd}") :results none
+          \definecolor{col1}{HTML}{B2B2B2}
+          \begin{tikzcd}[color=col1]
+     f^* \Gamma \ar[r, "f.\Gamma"] \ar[d, "p_{f^*\Gamma}"'] & \Gamma \ar[d, "p_\Gamma"] \\  
+     \Delta \ar[r, "f"'] & \ft \Gamma
+          \end{tikzcd}
+     #+END_SRC
+#+attr_html: :width 300px
+[[file:../Images/ctxCatPBsquare.png]]
+4. canonical projections are strictly functorial: \(\id_{\ft \Gamma}^* \Gamma = \Gamma\), \(\id_{\ft \Gamma} \Gamma = \id_\Gamma\); and for \(f : \Delta \to \ft \Gamma\) and \(g : \Theta \to Delta\), we have \((fg)^* \Gamma = g^*f^*\Gamma\) and \(fg.\Gamma = f.\Gamma \circ g.f^* \Gamma\).
+#+END_definition
+
+* Categories with attributes
+There are several equivalent definitions of a category with attributes (CwA). We present them here and show they are equivalent.
+** TODO More explicit description
+#+BEGIN_definition
+A /category with attributes/ consists of the following data:
+1. A category \(\mathbb C\), with a chosen terminal object 1;
+2. A functor \(\Ty:\mathbb C^\op \to \Set\);
+3. An assignment to each \(A \in \Ty(\Gamma\), an object \(\Gamma.A \in \mathbb C\) and a map \(p_A : \Gamma.A \to \Gamma\);
+4. for each \(A \in \Ty(\Gamma)\) and \(f : \Delta \to \Gamma\), a map \(f.A : \Delta.f^*A \to \Gamma.A\) (called the /connecting map/) such that the following square is a pullback:
+   #+BEGIN_SRC latex :fit yes :file ../Images/CwA-pullback-square.png :imagemagick yes :iminoptions -density 600  :headers '("\\usepackage{tikz-cd}") :results none
+     \definecolor{col1}{HTML}{B2B2B2}
+     \begin{tikzcd}[color=col1]
+      \Delta.f^*A \ar[r ,"{f.A}"] \ar[d, "p_{f^* A}"'] \PBarrow & \Gamma.A \ar[d, "p_A"] \\
+      \Delta \ar[r, "f"'] & \Gamma
+     \end{tikzcd}
+     #+END_SRC
+#+attr_html: :width 300px
+[[file:../Images/CwA-pullback-square.png]]
+#+END_definition
+** TODO From comprehension categories 1
+#+BEGIN_definition
+A category with attributes is a full, split comprehension category.
+#+END_definition
+** TODO From comprehension categories 2
+#+BEGIN_definition
+A category with attributes is a comprehension category where the Grothendieck fibration is discrete.
+#+END_definition
+
+** Showing the definitions are equivalent
+*** TODO Comprehension 1 to Comprehension 2
+(check that presheaf is well defined, check that horizontal map sends cartesian maps to pullback squares)
+#+BEGIN_lemma
+Let \((C, T)\) be a full, split comprehension category. Then we can form a comprehension category \((C, T')\) where the fibration is discrete.
+#+END_lemma
+#+BEGIN_proof
+Let \(F:T \to C\) be the split Grothendieck fibration from the comprehension category \(C\). Define \(\fib_F(c)\) to be the category with:
+- objects are \(t \in T\) such that \(Ft = c\);
+- morphisms are maps \(f: t \to t'\) such that \(Ft = Ft' = c\) and \(Ff = 1_c\).
+
+From here, we denote the set of objects (ignoring size issues) of \(\fib_F(c)\) as \(\norm{\fib_F(c)}\).This naturally defines a presheaf \(\norm{\fib_F(-)} : C^{\op} \to \Set\) which takes a map \(f : c \to c'\) in \(C\) to the a function \(\norm{\fib_F(f)} : \norm{\fib_F(c')} \to \norm{\fib_F(c)}\), defined by sending \(e \in \norm{\fib_F(c')}\) to the domain of the cartesian lift that the cleavage gives for the map \(f : c \to F(e)=c'\a). That this is a well defined presheaf requires the cleavage to be split.
+
+Taking the category of elements of \(\norm{\fib_F(-)}\), which we denote \(\integral_{\norm{F}}\), we have a discrete fibration \(\integral_{\norm{F}} \to C\) sending \((c,t) \to c\). We also have a functor \(\integral_{\norm{F}} \to T\) which sends the pair \((c,t) \to t\), which is faithful. It is then clear that the following triangle commutes:
+#+BEGIN_SRC latex :fit yes :file ../Images/cwa-cate-elements.png :imagemagick yes :iminoptions -density 600  :headers '("\\usepackage{tikz-cd}") :results none
+    \definecolor{col1}{HTML}{B2B2B2}
+    \begin{tikzcd}[color=col1]
+  \(\integral_{\norm{F}}\) \ar[r] \ar[rd] & T \ar[d] \\
+& C
+    \end{tikzcd}
+  #+END_SRC
+#+attr_html: :width 300px
+[[file:../Images/cwa-cate-elements.png]]
+
+This then gives us a comprehension category with a discrete fibration. 
+#+END_proof
+*** TODO Comprehension 2 to Comprehension 1
+#+BEGIN_lemma
+Given a comprehension category \((C,T)\), where the fibration is discrete, we can extract another comprehension category which is full and split.
+#+END_lemma
+#+BEGIN_proof
+
+#+END_proof
+
+
+* Categories with Families
 #+BEGIN_definition
 The category \(\Fam\) of families of sets is defined by the following data:
 - objects: pairs \((B^0, B^1)\) where \(B^0\) is a set and \((B^1_b)_{b \in B^0}\) is a family of sets, indexed by \(B^0\);
@@ -44,8 +133,10 @@ A /comprehension category/ is a functor \(P:E \rightarrow B^\rightarrow\) satisf
 We say that \(P\) is a full comprehension category when \(P\) is a fully faithful functor. It is cloven or split whenever the Grothendieck fibration is cloven or split.
 #+END_definition
 
-We now show how to construct a comprehension category from a dependent type theory \(\mathcal T\). Define the category \(B\) to have as contexts as objects and context morphisms as morphisms. The category \(E\) has as objects equivalence classes of judgements \([\Gamma \vdash A : \text{Type}]\) with morphisms \([\Gamma \vdash A : \text{Type}] \rightarrow [\Delta \vdash B : \text{Type}]\) being pairs \((f: \Gamma \rightarrow \Delta) \in B, \Gamma, x : A \vdash b : B(f)\). The functor \(P\) takes an object \(\Gamma \vdash A : \text{Type}\) to the projection morphism \(p_A: \Gamma.A \rightarrow \Gamma\).
+#+BEGIN_definition
+A /comprehension category/ consists of a category \(\mathcal C\) together with a (cloven) Grothendieck fibration \(P: \mathcal T \to \mathcal C\) and a functor \(\chi : \mathcal T \to \mathcal C ^\to\) (the comprehension), sending cartesian arrows to pullback squares, and such that \(\cod \circ  \chi = P\). A comprehension category is /split/ if \(P\) is a split fibration and full if \(\chi\) is fully faithful.
+#+END_definition
 
+Note that full split comprehension categories are equivalent to categories with attributes.
 
-
-
+We now show how to construct a comprehension category from a dependent type theory \(\mathcal T\). Define \(\mathcal C_{\mathbb T}\) to be the category of contexts of \(\mathbb T\). Define \(\mathcat T_{\mathbb T}\) to be the category of /types in context/ of \(\mathbb T\). This should be the category of elements of \(\Ty : \mathcal{C}_\mathbb{T}^\op \to \Set\). Let \(P:\mathcal T_{\mathbb T} \to \mathcal C_\mathbb{T}\) be the forgetful functor sending an object \((\Gamma, A)\) to the context \(\Gamma\). The comprehension \(\chi : \mathcal{T}_\mathbb{T} \to \mathcal{C}_{\mathbb T}^\to\) sends a pair \((\Gamma, A)\) to it's dependent projection \(p_A : \Gamma.A \to \Gamma\).

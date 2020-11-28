@@ -167,3 +167,27 @@ There is a bicategory \(\textbf{Bimod}\) with the following data:
 
 * TODO Pasting Diagrams
 
+* TODO Lax Functors
+
+#+BEGIN_definition
+Let \(B\), \(B'\) be bicategories. A /lax functor/ \((F, F^2, F^0):B \rightarrow B'\) is a triple consisting of the following data:
+
+- Objects: \(F:B_0 \rightarrow B'_0\) is a function on objects;
+- Hom Categories: For each pair of objects \(X,Y \in B\), it is equipped with a /local functor/
+\[F: B(X, Y) \rightarrow B'(FX, FY);\]
+- Laxitivity constraints: For all objects \(X, Y, Z \in B\), it is equipped with natural transformations
+#+BEGIN_SRC latex :fit yes :file ../Images/LaxitivityConstrains.png :imagemagick yes :iminoptions -density 600  :headers '("\\usepackage{tikz-cd} \\usepackage{mathtools}") :results none
+  \definecolor{col1}{HTML}{B2B2B2}
+    \begin{tikzcd}[color=col1]
+    {B(Y,Z) \times B(X,Y)} \arrow[r, "c"] \arrow[d, "F \times F"'] & {B(X,Z)} \arrow[d, "F"] &  & \mathbf 1 \arrow[rd, "1'_{FX}"'{name=I}, bend right] \arrow[r, "1_X"] & {B(X,X)} \arrow[d, "F"{name=F}] \\
+    {B'(FY, FZ) \times B'(FX, FY)} \arrow[r, "c'"']  \arrow[ru, phantom, "\xRightarrow{F^2}"]              & {B'(FX, FZ)}            &  &                                                               & F \arrow[phantom, from=I, to=F, "\xRightarrow{F^0}", shift left = 2]                     
+  \end{tikzcd}
+  #+END_SRC
+#+attr_html: :width 600px
+[[file:../Images/LaxitivityConstrains.png]]
+ with component 2-cells called the /lax functoriality constraint/ and the /lax unity constraint/.
+ - Lax Associativity:
+ - Lax Left and Right Unity:
+#+END_definition
+
+

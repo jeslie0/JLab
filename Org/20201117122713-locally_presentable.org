@@ -1,0 +1,11 @@
+#+title: Locally presentable
+#+author: James Leslie
+#+options: h:2 num:t tex:t
+#+STARTUP: latexpreview inlineimages hideblocks
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+* Locally \(\kappa\)-presentable
+#+BEGIN_definition
+Let \(\kappa\) be a regular cardinal. A locally small category \(\mathcal C\) is /locally \(\kappa\)-presentable/ if it is cocomplete and if it has a set of objects \(S\) such that:
+- Every object in \(\mathcal C\) can be written as a colimit of a diagram valued in the subcategory spanned by \(S\).
+- For each object \(s \in S\), the functor \(\mathcal C(s, -) : \mathcal C \to \textbf{Set}\) preserves [[file:20201117115515-limits_and_colimits.org][\(\kappa\)-filtered colimits]] 
+#+END_definition

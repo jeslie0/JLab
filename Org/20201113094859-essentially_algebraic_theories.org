@@ -1,0 +1,67 @@
+#+title: Essentially Algebraic Theories
+#+author: James Leslie
+#+options: h:2 num:t tex:t
+#+STARTUP: latexpreview inlineimages hideblocks
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../CSS/JLab.css" /> <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+* Definition
+There are two ways to think about an essentially algebraic theory. The first is a more concrete description, which is a generalisation of signatures from model theory or universal algebra. The second is a more categorical view point. The difference is similar in flavour to the difference between universal algebra and Lawvere theories. We will look at both definitions.
+
+#+BEGIN_definition
+Let \(S\) be a set of sorts (types). An /\(S\)-sorted signature of algebras/ is a set \(\Sigma\) of operation symbols, together with an arity function, assigning to each operation symbol \(\sigma \in \Sigma\) a finite word \((s_1, s_2, \ldots, s_n)\) in the alphabet \(S\), and an element \(s \in S\).
+
+We will write \(\sigma : s_1 \times s_2 \times \ldots \times s_n \to s\), or \(\sigma : \prod_{i=1}^n s_i \to s\).
+#+END_definition
+
+For classical model theory, we only every deal with \(S\) having one element. This means the operations are all \(n\)-ary operations on a single object.
+
+#+BEGIN_definition
+An /essentially algebraic theory/ is a quadruple
+\[\Gamma = (\Sigma, E, \Sigma_t, \text{Def}),\]
+where:
+- \(\Sigma\) is a many-sorted signature, consisting only of operation symbols;
+- \(E\) is a set of \(\Sigma\)-equations;
+- \(\Sigma_t \subset \Sigma\) is a set of operation symbols called "total";
+- \(\text{Def}\) is a (dependent) function which assign to each non-total operation \(\sigma : \prod_{i=1}^n s_i \to s\) in \(\Sigma \backslash \Sigma_t\), a set of \(\Sigma_t\)-equations involving only variables \(x_i\) of type \(\text{Var}(s_i)\). 
+#+END_definition
+
+We can then define a (set-theoretic) model, \(M\), of an essentially algebraic theory \(\Gamma\) to be:
+- An assignment of each sort \(s \in S\) to a set \(M(s)\);
+- An assignment of each operation symbol \(\sigma : \prod_{i = 1}^n s_i \to s\) a /partial/ function
+  \[M(\sigma) : \prod_{i=1}^n M(s_i) \to M(s)\]
+  such that:
+  * for each \(\sigma \in \Sigma_t\), \(M(\sigma)\) is a total function;
+  * for each \(\sigma \in \Sigma \backslash \Sigma_t\) of type \(\prod_{i=1}^n s_i \to s\) and each \(n\)-tuple \[a = (a_i)_{i=1}^n \in \prod_{i=1}^n M(s_i),\]
+    \(M(\sigma)(a)\) is defined if and only if all the equations in \(\text{Def}{\sigma}\) are satisfied at the argument \(a\).
+  * All the equations of \(E\) are satisfied.
+
+    
+#+BEGIN_ex
+The theory of categories is an example, if not /the/ example of an essentially algebraic theory. We spell this out now.
+
+We let \(\Sigma\) consist of two sorts, \(\text{ob}\) and \(\text{hom}\), with operation symbols:
+- \(\text{hom} : \text{ob} \times \text{ob} \to \text{map}\)
+- \(s : \text{map} \to \text{ob}\);
+- \(t : \text{map} \to \text{ob}\);
+- \(\text{id} : \text{ob} \to \text{map}\);
+- \(\circ : \text{map} \times \text{map} \to \text{map}\) (we will use infix notation).
+
+We have the following equations:
+- \(s(\text{id}(x)) = t(\text{id}(x)) = x\);
+- \(f \circ \text{id}(x) = f\) and \(\text{id}(y) \circ f = f\);
+- \((f \circ g) \circ h = f \circ (g \circ h)\);
+- \(s(g \circ f) = s(f)\) and \(t(g \circ f) = t(g)\).
+
+The following are the total operations:
+- \(\text{hom}\);
+- \(s\);
+- \(t\);
+- \(\text{id}\);
+
+Finally, we have the following set \(\text{Def}(\circ)\) which consists of a single equation, giving the conditions for \(\circ\) to be defined:
+- Given \((g , f) \in \text{Var}(\text{map})\times\text{Var}(\text{map})\), \(t(f) = s(g)\).
+
+A model of this is then exactly a category.
+#+END_ex
+
+* References
+[[https://ncatlab.org/nlab/show/Locally+presentable+and+accessible+categories][Locally presentable and accessible categories]] - Section 3.D

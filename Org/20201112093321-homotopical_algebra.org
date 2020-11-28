@@ -1,0 +1,5 @@
+#+title: Homotopical Algebra
+#+author: James Leslie
+#+description: Notes following Cisinski's Higher Categories and Homotopical Algebra
+* Prelude
+** Presheaves

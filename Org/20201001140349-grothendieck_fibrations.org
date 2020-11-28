@@ -44,7 +44,6 @@ We think of \(E_b\) as having objects above \(b\), with /vertical/ morphisms.
 
 
 * Examples
-
 ** The category of elements
 :PROPERTIES:
 :ID:       5dfb85b6-3c01-46bc-b1b2-66074237528b

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-07 Wed 21:25 -->
+<!-- 2020-11-28 Sat 15:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bicategories</title>
@@ -246,58 +246,59 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge909fe4">1. Idea</a></li>
-<li><a href="#org5bc7086">2. Definition</a>
+<li><a href="#org1ad4b45">1. Idea</a></li>
+<li><a href="#org50824ac">2. Definition</a>
 <ul>
-<li><a href="#org624b51c">2.1. Objects</a></li>
-<li><a href="#org0a9c6c5">2.2. Hom Categories</a></li>
-<li><a href="#org7ea2292">2.3. Identity 1-Cells</a></li>
-<li><a href="#org3e75f80">2.4. Horizontal Composition</a></li>
-<li><a href="#org8587837">2.5. Associator</a></li>
-<li><a href="#org144a0d8">2.6. Unitors</a></li>
-<li><a href="#org4ee697a">2.7. Unity Axiom</a></li>
-<li><a href="#org6cf51fd">2.8. Pentagon Axiom</a></li>
+<li><a href="#org08a4fca">2.1. Objects</a></li>
+<li><a href="#orga1ecd86">2.2. Hom Categories</a></li>
+<li><a href="#org398f015">2.3. Identity 1-Cells</a></li>
+<li><a href="#orgdc316ee">2.4. Horizontal Composition</a></li>
+<li><a href="#orgc3f049d">2.5. Associator</a></li>
+<li><a href="#org998e2e2">2.6. Unitors</a></li>
+<li><a href="#orga3deeda">2.7. Unity Axiom</a></li>
+<li><a href="#org1571772">2.8. Pentagon Axiom</a></li>
 </ul>
 </li>
-<li><a href="#orgafcf6f7">3. Remarks</a>
+<li><a href="#orgee26ee7">3. Remarks</a>
 <ul>
-<li><a href="#org7e659d8">3.1. Notation</a></li>
+<li><a href="#org213328f">3.1. Notation</a></li>
 </ul>
 </li>
-<li><a href="#org36f2c79">4. <span class="todo TODO">TODO</span> Explanation</a></li>
-<li><a href="#org0ac63dd">5. Examples</a>
+<li><a href="#orgb6e0393">4. <span class="todo TODO">TODO</span> Explanation</a></li>
+<li><a href="#orgd0e8a42">5. Examples</a>
 <ul>
-<li><a href="#org8f16ceb">5.1. Monoidal categories</a></li>
-<li><a href="#org87b18bf">5.2. Spans</a></li>
-<li><a href="#orgffe06e5">5.3. Bimodules</a></li>
+<li><a href="#org2b751cb">5.1. Monoidal categories</a></li>
+<li><a href="#orgccc7f48">5.2. Spans</a></li>
+<li><a href="#org97908cc">5.3. Bimodules</a></li>
 </ul>
 </li>
-<li><a href="#org63bd8c6">6. Unity</a></li>
-<li><a href="#org295ec3b">7. <span class="todo TODO">TODO</span> Pasting Diagrams</a></li>
+<li><a href="#org071214a">6. Unity</a></li>
+<li><a href="#org5f6b9ed">7. <span class="todo TODO">TODO</span> Pasting Diagrams</a></li>
+<li><a href="#org52acafb">8. <span class="todo TODO">TODO</span> Lax Functors</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge909fe4" class="outline-2">
-<h2 id="orge909fe4"><span class="section-number-2">1</span> Idea</h2>
+<div id="outline-container-org1ad4b45" class="outline-2">
+<h2 id="org1ad4b45"><span class="section-number-2">1</span> Idea</h2>
 </div>
 
-<div id="outline-container-org5bc7086" class="outline-2">
-<h2 id="org5bc7086"><span class="section-number-2">2</span> Definition</h2>
+<div id="outline-container-org50824ac" class="outline-2">
+<h2 id="org50824ac"><span class="section-number-2">2</span> Definition</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 A <i>bicategory</i> is a tuple \((B, 1, c, a, l, r)\) consisting of the following data
 </p>
 </div>
-<div id="outline-container-org624b51c" class="outline-3">
-<h3 id="org624b51c"><span class="section-number-3">2.1</span> Objects</h3>
+<div id="outline-container-org08a4fca" class="outline-3">
+<h3 id="org08a4fca"><span class="section-number-3">2.1</span> Objects</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 \(B\) is equipped with a class \(\operatorname{Ob}(B)=B_0\), whose elements are called <i>objects</i> or <i>0-cells</i> in \(B\). If \(X \in B_0\), we write \(X \in B\).
 </p>
 </div>
 </div>
-<div id="outline-container-org0a9c6c5" class="outline-3">
-<h3 id="org0a9c6c5"><span class="section-number-3">2.2</span> Hom Categories</h3>
+<div id="outline-container-orga1ecd86" class="outline-3">
+<h3 id="orga1ecd86"><span class="section-number-3">2.2</span> Hom Categories</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 For each pair of objects \(X, Y \in B\), \(B\) is equipped with a category \(B(X,Y)\), called a <i>hom category</i>.
@@ -311,8 +312,8 @@ For each pair of objects \(X, Y \in B\), \(B\) is equipped with a category \(B(X
 </ul>
 </div>
 </div>
-<div id="outline-container-org7ea2292" class="outline-3">
-<h3 id="org7ea2292"><span class="section-number-3">2.3</span> Identity 1-Cells</h3>
+<div id="outline-container-org398f015" class="outline-3">
+<h3 id="org398f015"><span class="section-number-3">2.3</span> Identity 1-Cells</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 For each object \(X \in B\),
@@ -327,8 +328,8 @@ is a functor. We identify the functor \(1_X\) with the 1-cell \(1_X(*) \in B(X,X
 </p>
 </div>
 </div>
-<div id="outline-container-org3e75f80" class="outline-3">
-<h3 id="org3e75f80"><span class="section-number-3">2.4</span> Horizontal Composition</h3>
+<div id="outline-container-orgdc316ee" class="outline-3">
+<h3 id="orgdc316ee"><span class="section-number-3">2.4</span> Horizontal Composition</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 For each triple of objects \(X, Y, Z \in B\),
@@ -347,8 +348,8 @@ is a functor, called <i>horizontal composition</i>. For 1-cells \(f \in B(X, Y)\
 </ul>
 </div>
 </div>
-<div id="outline-container-org8587837" class="outline-3">
-<h3 id="org8587837"><span class="section-number-3">2.5</span> Associator</h3>
+<div id="outline-container-orgc3f049d" class="outline-3">
+<h3 id="orgc3f049d"><span class="section-number-3">2.5</span> Associator</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 For objects \(W, X, Y, Z \in B\),
@@ -367,8 +368,8 @@ is a natural isomorphism called the associator, between functors
 </p>
 </div>
 </div>
-<div id="outline-container-org144a0d8" class="outline-3">
-<h3 id="org144a0d8"><span class="section-number-3">2.6</span> Unitors</h3>
+<div id="outline-container-org998e2e2" class="outline-3">
+<h3 id="org998e2e2"><span class="section-number-3">2.6</span> Unitors</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 For each pair of objects \(X, Y \in B\),
@@ -387,14 +388,14 @@ The subscripts in \(c\) will often be omitted. Th subscripts in \(a\), \(l\), an
 </p>
 </div>
 </div>
-<div id="outline-container-org4ee697a" class="outline-3">
-<h3 id="org4ee697a"><span class="section-number-3">2.7</span> Unity Axiom</h3>
+<div id="outline-container-orga3deeda" class="outline-3">
+<h3 id="orga3deeda"><span class="section-number-3">2.7</span> Unity Axiom</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 The middle unity diagram
 </p>
 
-<div id="orgabe297d" class="figure">
+<div id="org1aba0a2" class="figure">
 <p><img src="../Images/unity_diagram.png" alt="unity_diagram.png" width="400px" />
 </p>
 </div>
@@ -404,14 +405,14 @@ in \(B(V,X)\) is commutative.
 </p>
 </div>
 </div>
-<div id="outline-container-org6cf51fd" class="outline-3">
-<h3 id="org6cf51fd"><span class="section-number-3">2.8</span> Pentagon Axiom</h3>
+<div id="outline-container-org1571772" class="outline-3">
+<h3 id="org1571772"><span class="section-number-3">2.8</span> Pentagon Axiom</h3>
 <div class="outline-text-3" id="text-2-8">
 <p>
 The diagram
 </p>
 
-<div id="orgbc08762" class="figure">
+<div id="org40c9630" class="figure">
 <p><img src="../Images/pentagon_diagram.png" alt="pentagon_diagram.png" width="400px" />
 </p>
 </div>
@@ -422,12 +423,12 @@ in \(B(V,Z)\) is commutative.
 </div>
 </div>
 </div>
-<div id="outline-container-orgafcf6f7" class="outline-2">
-<h2 id="orgafcf6f7"><span class="section-number-2">3</span> Remarks</h2>
+<div id="outline-container-orgee26ee7" class="outline-2">
+<h2 id="orgee26ee7"><span class="section-number-2">3</span> Remarks</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org7e659d8" class="outline-3">
-<h3 id="org7e659d8"><span class="section-number-3">3.1</span> Notation</h3>
+<div id="outline-container-org213328f" class="outline-3">
+<h3 id="org213328f"><span class="section-number-3">3.1</span> Notation</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>We refer to a bicategory as \(B\), its class of objects.</li>
@@ -435,29 +436,29 @@ in \(B(V,Z)\) is commutative.
 </div>
 </div>
 </div>
-<div id="outline-container-org36f2c79" class="outline-2">
-<h2 id="org36f2c79"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> Explanation</h2>
+<div id="outline-container-orgb6e0393" class="outline-2">
+<h2 id="orgb6e0393"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> Explanation</h2>
 </div>
-<div id="outline-container-org0ac63dd" class="outline-2">
-<h2 id="org0ac63dd"><span class="section-number-2">5</span> Examples</h2>
+<div id="outline-container-orgd0e8a42" class="outline-2">
+<h2 id="orgd0e8a42"><span class="section-number-2">5</span> Examples</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org8f16ceb" class="outline-3">
-<h3 id="org8f16ceb"><span class="section-number-3">5.1</span> Monoidal categories</h3>
+<div id="outline-container-org2b751cb" class="outline-3">
+<h3 id="org2b751cb"><span class="section-number-3">5.1</span> Monoidal categories</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 Every <a href="20200929203737-monoidal_categories.html">Monoidal Category</a> is an example of a one object bicategory. This is a generalisation of the observation that a monoid is just a one object category.
 </p>
 </div>
 </div>
-<div id="outline-container-org87b18bf" class="outline-3">
-<h3 id="org87b18bf"><span class="section-number-3">5.2</span> Spans</h3>
+<div id="outline-container-orgccc7f48" class="outline-3">
+<h3 id="orgccc7f48"><span class="section-number-3">5.2</span> Spans</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 We can construct a bicategory from any category \(\mathcal C\) which has all pullbacks.
 </p>
 
-<div class="definition" id="org5e8f312">
+<div class="definition" id="org1179a1d">
 <p>
 Let \(\mathcal C\) be a category and \(A, B \in \mathcal C\). A <i>span</i> from \(A\) to \(B\) in \(\mathcal C\) is a diagram
 \[A \xleftarrow{f_1} X \xrightarrow{f_2} B.\]
@@ -465,7 +466,7 @@ Let \(\mathcal C\) be a category and \(A, B \in \mathcal C\). A <i>span</i> from
 
 </div>
 
-<div class="definition" id="org80d6082">
+<div class="definition" id="org234f7cb">
 <p>
 Given a category \(\mathcal C\) which has all pullbacks, we form the <i>bicategory of spans of \(\mathcal C\)</i>, denoted \(\text{Span}(\mathcal C)\) or just \(\text{Span}\) for short, as follows:
 </p>
@@ -476,7 +477,7 @@ Given a category \(\mathcal C\) which has all pullbacks, we form the <i>bicatego
 </ul>
 
 
-<div id="org01067b0" class="figure">
+<div id="org3812177" class="figure">
 <p><img src="../Images/span-morphism.png" alt="span-morphism.png" width="400px" />
 </p>
 </div>
@@ -488,7 +489,7 @@ Given a category \(\mathcal C\) which has all pullbacks, we form the <i>bicatego
 </ul>
 
 
-<div id="org8b9f888" class="figure">
+<div id="org655f09f" class="figure">
 <p><img src="../Images/horizontal-composite-spans.png" alt="horizontal-composite-spans.png" width="400px" />
 </p>
 </div>
@@ -502,7 +503,7 @@ The diamond in the middle is the chosen pullback of \((f_2, g_1)\).
 </ul>
 
 
-<div id="org6ab2c66" class="figure">
+<div id="org05957da" class="figure">
 <p><img src="../Images/horizontal-composition-2cells-span.png" alt="horizontal-composition-2cells-span.png" width="400px" />
 </p>
 </div>
@@ -517,10 +518,10 @@ The commutativity of the solid arrow diagram and the universal property of the p
 </div>
 </div>
 </div>
-<div id="outline-container-orgffe06e5" class="outline-3">
-<h3 id="orgffe06e5"><span class="section-number-3">5.3</span> Bimodules</h3>
+<div id="outline-container-org97908cc" class="outline-3">
+<h3 id="org97908cc"><span class="section-number-3">5.3</span> Bimodules</h3>
 <div class="outline-text-3" id="text-5-3">
-<div class="definition" id="orgba58cea">
+<div class="definition" id="org0252991">
 <p>
 Let \(R,S\) be rings. A <i>\((R,S)\)-bimodule</i> is an abelian group \(M\) with:
 </p>
@@ -538,7 +539,7 @@ A <i>bimodule homomorphism</i> is an abelian group homomorphism \(f: M \rightarr
 
 </div>
 
-<div class="definition" id="orgc93d6c5">
+<div class="definition" id="orgd304e6f">
 <p>
 There is a bicategory \(\textbf{Bimod}\) with the following data:
 </p>
@@ -554,17 +555,49 @@ There is a bicategory \(\textbf{Bimod}\) with the following data:
 </div>
 </div>
 
-<div id="outline-container-org63bd8c6" class="outline-2">
-<h2 id="org63bd8c6"><span class="section-number-2">6</span> Unity</h2>
+<div id="outline-container-org071214a" class="outline-2">
+<h2 id="org071214a"><span class="section-number-2">6</span> Unity</h2>
 </div>
 
-<div id="outline-container-org295ec3b" class="outline-2">
-<h2 id="org295ec3b"><span class="section-number-2">7</span> <span class="todo TODO">TODO</span> Pasting Diagrams</h2>
+<div id="outline-container-org5f6b9ed" class="outline-2">
+<h2 id="org5f6b9ed"><span class="section-number-2">7</span> <span class="todo TODO">TODO</span> Pasting Diagrams</h2>
+</div>
+
+<div id="outline-container-org52acafb" class="outline-2">
+<h2 id="org52acafb"><span class="section-number-2">8</span> <span class="todo TODO">TODO</span> Lax Functors</h2>
+<div class="outline-text-2" id="text-8">
+<div class="definition" id="org0178c6e">
+<p>
+Let \(B\), \(B'\) be bicategories. A <i>lax functor</i> \((F, F^2, F^0):B \rightarrow B'\) is a triple consisting of the following data:
+</p>
+
+<ul class="org-ul">
+<li>Objects: \(F:B_0 \rightarrow B'_0\) is a function on objects;</li>
+<li>Hom Categories: For each pair of objects \(X,Y \in B\), it is equipped with a <i>local functor</i></li>
+</ul>
+<p>
+\[F: B(X, Y) \rightarrow B'(FX, FY);\]
+</p>
+<ul class="org-ul">
+<li>Laxitivity constraints: For all objects \(X, Y, Z \in B\), it is equipped with natural transformations</li>
+</ul>
+<p width="600px">
+<img src="../Images/LaxitivityConstrains.png" alt="LaxitivityConstrains.png" width="600px" />
+ with component 2-cells called the <i>lax functoriality constraint</i> and the <i>lax unity constraint</i>.
+</p>
+<ul class="org-ul">
+<li>Lax Associativity:</li>
+<li>Lax Left and Right Unity:</li>
+</ul>
+
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: James leslie</p>
-<p class="date">Created: 2020-10-07 Wed 21:25</p>
+<p class="date">Created: 2020-11-28 Sat 15:33</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
